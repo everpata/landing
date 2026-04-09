@@ -16,12 +16,11 @@
         --gap: 80px; 
       }
 
-      /* Reset y Estabilidad */
-      html, body { 
-        margin: 0; padding: 0; width: 100%; overflow-x: hidden; 
-        background: var(--white); color: var(--primary);
-        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-        line-height: 1.7; -webkit-font-smoothing: antialiased;
+      body { 
+        margin: 0; padding: 0; background: var(--white); 
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; 
+        color: var(--primary); line-height: 1.7; -webkit-font-smoothing: antialiased;
+        text-align: left;
       }
 
       .container { width: 100%; max-width: 700px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; }
@@ -29,31 +28,28 @@
       .reveal { opacity: 0; transform: translateY(30px); transition: all 1s var(--ease); }
       .reveal.active { opacity: 1; transform: translateY(0); }
 
+      /* --- ENCABEZADO --- */
       header { padding: 60px 0 0 0; } 
       .header-logo { width: 100%; max-width: 380px; height: auto; margin-bottom: 40px; display: block; border-radius: 12px; }
 
       h1 { font-size: clamp(32px, 7vw, 54px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.0; margin-bottom: var(--gap); color: var(--secondary); }
       h2 { font-size: 26px; font-weight: 700; margin-bottom: 25px; letter-spacing: -0.01em; margin-top: 0; color: var(--secondary); line-height: 1.1; }
       .h-highlight { color: var(--primary); }
-      .mb-gap { margin-bottom: var(--gap); }
-
-      p { font-size: 18px; color: var(--primary); font-weight: 400; margin-top: 0; margin-bottom: 24px; }
       
+      .mb-gap { margin-bottom: var(--gap); }
+      p { font-size: 18px; color: var(--primary); font-weight: 400; margin-top: 0; margin-bottom: 24px; }
+
+      /* --- TARJETAS DE CONTRASTE --- */
       .contrast-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: var(--gap); }
       .contrast-card { background: var(--light-bg); padding: 30px; border-radius: 24px; border: 1px solid #f2f2f2; font-size: 16px; }
       .contrast-card-dark { background: var(--darker-bg); border-color: #e8e8ed; }
       .contrast-card strong { display: block; text-transform: uppercase; font-size: 12px; letter-spacing: 0.1em; color: var(--secondary); margin-bottom: 12px; }
 
+      /* --- CITA --- */
       .quote-block { font-size: 18px; font-weight: 500; color: #000; line-height: 1.6; border-left: 3px solid var(--primary); padding-left: 25px; margin-bottom: var(--gap); }
 
-      /* --- NUEVO SLIDER ULTRA-ESTABLE --- */
-      .slider-full-width {
-        width: 100%;
-        margin-bottom: var(--gap);
-        cursor: grab;
-      }
-      .slider-full-width:active { cursor: grabbing; }
-
+      /* --- SLIDER DE DÍAS (DENTRO DEL CONTAINER) --- */
+      .slider-section { margin-bottom: var(--gap); overflow: hidden; }
       .days-slider { 
         display: flex; 
         gap: 20px; 
@@ -61,16 +57,11 @@
         scroll-snap-type: x mandatory; 
         scrollbar-width: none; 
         padding: 20px 0;
-        -webkit-overflow-scrolling: touch;
+        cursor: grab;
       }
+      .days-slider:active { cursor: grabbing; }
       .days-slider::-webkit-scrollbar { display: none; }
-
-      /* Espaciadores para alinear con el container */
-      .slider-spacer {
-        flex: 0 0 auto;
-        width: calc((100vw - 700px) / 2 + 24px);
-      }
-
+      
       .day-card { 
         flex: 0 0 320px; 
         background: var(--light-bg); 
@@ -80,34 +71,27 @@
         scroll-snap-align: start;
         user-select: none;
       }
-
-      /* Ajuste para móvil */
-      @media (max-width: 700px) {
-        .slider-spacer { width: 24px; }
-        .day-card { flex: 0 0 280px; }
-        .contrast-grid { grid-template-columns: 1fr; }
-        .aviso-section, .warning-section { padding: 30px 20px; }
-      }
-
       .day-tag { font-weight: 800; font-size: 12px; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; }
       .day-card h4 { font-size: 22px; margin: 15px 0 10px 0; }
-      .day-card p { font-size: 14px; color: var(--secondary); line-height: 1.5; }
-      .live-label { font-size: 11px; font-weight: 800; text-transform: uppercase; background: #000; color: #fff; padding: 4px 8px; border-radius: 4px; display: inline-block; margin: 10px 0; }
-      .scroll-hint { font-size: 12px; color: var(--secondary); margin-top: 5px; padding-left: 24px; display: flex; align-items: center; gap: 8px; opacity: 0.8; }
+      .day-card p { font-size: 14px; color: var(--secondary); line-height: 1.5; margin-bottom: 10px; }
+      .live-label { font-size: 11px; font-weight: 800; text-transform: uppercase; background: #000; color: #fff; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+      .scroll-hint { font-size: 12px; color: var(--secondary); margin-top: 5px; display: flex; align-items: center; gap: 8px; opacity: 0.8; }
 
-      .content-block { margin-bottom: var(--gap); }
-
+      /* --- AVISO RESTRINGIDO --- */
       .aviso-section { margin-bottom: var(--gap); padding: 40px; background: #fafafa; border-radius: 24px; border: 1px solid #f0f0f0; }
       .info-item { margin-bottom: 30px; }
+      .info-item:last-child { margin-bottom: 0; }
       .info-item strong { display: block; font-size: 17px; margin-bottom: 8px; color: #000; }
       .info-item p { font-size: 15px; color: var(--secondary); margin: 0; }
 
+      /* --- NO PIERDAS TU TIEMPO --- */
       .warning-section { margin-bottom: var(--gap); padding: 40px; border-radius: 24px; background: #333; color: #fff; }
       .warning-section h2 { color: #fff; }
       .warning-item { padding: 10px 0; margin-bottom: 10px; }
       .warning-item strong { display: block; color: #fff; margin-bottom: 5px; }
       .warning-item span { color: #878787; font-size: 15px; }
 
+      /* --- FORMULARIO --- */
       .form-section { margin-bottom: var(--gap); padding: 50px 30px; background: var(--white); border-radius: 32px; border: 1px solid #eee; text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.06); }
       input { width: 100%; padding: 18px; margin: 10px 0; border: 1px solid #d2d2d7; border-radius: 14px; background: #f5f5f7; font-size: 16px; box-sizing: border-box; text-align: left; }
       .iti { width: 100%; text-align: left; }
@@ -115,6 +99,12 @@
 
       .about-section { padding: 80px 0; border-top: 1px solid #eee; }
       .signature { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--secondary); margin-top: 30px; font-weight: 700; }
+
+      @media (max-width: 600px) {
+        .contrast-grid { grid-template-columns: 1fr; }
+        .day-card { flex: 0 0 85%; }
+        .aviso-section, .warning-section { padding: 30px 20px; }
+      }
     </style>
 </head>
 <body>
@@ -155,55 +145,79 @@
           Un hombre sin densidad es como un corcho en el mar: se mueve según el humor de ella, la opinión de su jefe o el miedo al rechazo. Un hombre profundo es el centro de su propio mundo. Él escoge.
         </div>
       </div>
-    </div>
 
-    <section class="slider-full-width reveal">
-      <div class="container" style="margin-bottom: 20px;">
+      <section class="slider-section reveal">
         <h2>Esto es lo que va a pasar en el <span class="h-highlight">descenso (tramo 01):</span></h2>
-      </div>
-      <div class="days-slider" id="daysSlider">
-        <div class="slider-spacer"></div> <div class="day-card">
-          <span class="day-tag">Día 01 - 27 de Abril</span>
-          <h4>La renuncia.</h4>
-          <p>Encontraremos tu fuga de poder y localizaremos la máscara de validación que usas para "encajar". Identificaremos ese lastre antes de que el peso te quiebre.</p>
+        <div class="days-slider" id="daysSlider">
+          <div class="day-card">
+            <span class="day-tag">Día 01 - 27 de Abril</span>
+            <h4>La renuncia.</h4>
+            <p>Encontraremos tu fuga de poder y localizaremos la máscara de validación que usas para "encajar" y que te hace sentir "insuficiente".</p>
+          </div>
+          <div class="day-card">
+            <span class="day-tag">Día 02</span>
+            <h4>La fuente.</h4>
+            <p>Errores invisibles que activan el rechazo antes de abrir la boca. Conocerás cara a cara al saboteador invisible.</p>
+            <div class="live-label">Sesión en vivo (15 min)</div>
+            <p style="font-size: 13px; font-style: italic; color: var(--secondary);">Inspección de carga: Intervención en directo.</p>
+          </div>
+          <div class="day-card">
+            <span class="day-tag">Día 03</span>
+            <h4>Veredicto Final.</h4>
+            <p>Recibirás los criterios de profundidad para que el miedo al juicio deje de ser tu brújula. La ruta del hombre denso.</p>
+            <div class="live-label">Sesión en vivo (15 min)</div>
+          </div>
         </div>
-        <div class="day-card">
-          <span class="day-tag">Día 02</span>
-          <h4>La fuente.</h4>
-          <p>Errores invisibles que activan el rechazo antes de que abras la boca. Conocerás cara a cara al saboteador invisible que te ha mantenido relegado.</p>
-          <div class="live-label">Sesión en vivo (15 min)</div>
-          <p style="font-size: 13px; font-style: italic; color: var(--secondary);">Inspección de carga: Intervención en directo.</p>
+        <div class="scroll-hint">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          Desliza o arrastra para ver más
         </div>
-        <div class="day-card">
-          <span class="day-tag">Día 03</span>
-          <h4>El punto de no retorno.</h4>
-          <p>Recibirás el Veredicto Final. Te compartiré la ruta para dejar de ser el conejo que huye al hombre que atrae por su propia fuerza de gravedad.</p>
-          <div class="live-label">Sesión en vivo (15 min)</div>
-        </div>
-        <div class="slider-spacer"></div> </div>
-    </section>
+      </section>
 
-    <div class="container">
-      <section class="content-block reveal">
-        <h2>Un <span class="h-highlight">diagnóstico real</span> requiere precisión.</h2>
-        <p>Mis intervenciones en vivo son de 15 minutos de absoluta densidad. Si buscas a alguien que te entretenga, ve al circo.</p>
-        <p><strong>Este primer paso no tiene costo económico</strong> pero sí un precio: abandonar la superficialidad.</p>
+      <section class="reveal">
+        <div class="mb-gap">
+          <h2>Un <span class="h-highlight">diagnóstico real</span> requiere precisión.</h2>
+          <p>Mis intervenciones en vivo son de 15 minutos de absoluta densidad. Entro, localizo el lastre y fijo la orden. Si buscas a alguien que te entretenga, ve al circo.</p>
+          <p>Si buscas al especialista que identifique el fallo que te mantiene siendo un títere en la superficie, nos vemos en la sesión.</p>
+        </div>
+
+        <div class="mb-gap">
+          <h2>Este primer paso <span class="h-highlight">no tiene costo económico</span></h2>
+          <p>pero sí un precio: abandonar la superficialidad.</p>
+          <p>Si estás listo para dejar de conformarte con migajas de atención y empezar a ser el hombre que elige su propia realidad, entra ahora.</p>
+        </div>
       </section>
 
       <section class="aviso-section reveal">
         <h2>Aviso de <span class="h-highlight">acceso restringido</span></h2>
-        <div class="info-item"><strong>Perfil operativo:</strong> <p>Líder técnico, dueño de negocio o perfil de alto rendimiento.</p></div>
-        <div class="info-item"><strong>Consciencia de fuga:</strong> <p>Tienes más de 30 años y sabes que tu complacencia te está costando el liderazgo.</p></div>
+        <div class="info-item">
+          <strong>Perfil operativo:</strong>
+          <p>Eres líder técnico, dueño de negocio o perfil de alto rendimiento con responsabilidad real.</p>
+        </div>
+        <div class="info-item">
+          <strong>Consciencia de fuga:</strong>
+          <p>Tienes más de 30 años y sabes que tu complacencia te está costando el liderazgo y el respeto.</p>
+        </div>
+        <div class="info-item">
+          <strong>Disposición al desmantelamiento:</strong>
+          <p>No buscas consejos, buscas una reingeniería completa de tu identidad actual.</p>
+        </div>
+        <div class="info-item">
+            <strong>Compromiso de recursos:</strong>
+            <p>Entiendes que la transformación exige una inversión deliberada de tiempo, energía y capital.</p>
+          </div>
       </section>
 
       <section class="warning-section reveal">
         <h2><span class="h-highlight">No pierdas tu tiempo</span> (ni el mío) si:</h2>
         <div class="warning-item"><strong>Buscas "frases mágicas":</strong> <span>Prefieres trucos de ligue a marcos mentales de fondo.</span></div>
+        <div class="warning-item"><strong>Mendicidad intelectual:</strong> <span>Buscas contenido gratuito para "ver qué pasa" sin valorar la tecnología humana.</span></div>
         <div class="warning-item"><strong>Fragilidad emocional:</strong> <span>No sostienes una verdad cruda sobre tu incompetencia.</span></div>
+        <div class="warning-item"><strong>Adicción a la comodidad:</strong> <span>Tu prioridad es el bienestar inmediato y no la densidad.</span></div>
       </section>
 
       <section class="form-section reveal" id="registro">
-        <h3>La próxima edición será el 27 de abril.</h3>
+        <h3 style="color:var(--primary); margin-bottom: 10px;">La próxima edición será el 27 de abril.</h3>
         <h2><span class="h-highlight">Solicitar tu lugar</span></h2>
         <form id="deepForm">
           <input type="text" id="nombre" placeholder="Nombre completo" required>
@@ -212,58 +226,69 @@
           <button type="submit" id="btn">QUIERO ESCOGER</button>
         </form>
       </section>
+
+      <section class="about-section reveal">
+        <h2><span class="h-highlight">Sobre mí</span></h2>
+        <p>Fui el tipo que encajaba en todo pero no pertenecía a nada. Construí mi libertad desmantelando las mismas mentiras que hoy te asfixian.</p>
+        <p class="text-secondary">No te voy a enseñar a "ser mejor", te voy a enseñar a dejar de mentirte.</p>
+        <div class="signature">Deepfall Engineering</div>
+      </section>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <script>
-      // Reveal
+      // Reveal Animation
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
       }, { threshold: 0.1 });
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-      // Slider Logic (PC & Móvil)
+      // --- CORRECCIÓN SLIDER PC (DRAG TO SCROLL) ---
       const slider = document.getElementById('daysSlider');
       let isDown = false, startX, scrollLeft;
 
-      // Auto-scroll Suave
-      let autoScroll = setInterval(() => {
-        if (!isDown) {
-          slider.scrollLeft += 1;
-          if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 2) {
-            slider.scrollTo({left: 0, behavior: 'smooth'});
-          }
-        }
-      }, 35);
-
-      // Mouse Events (PC)
       slider.addEventListener('mousedown', (e) => {
         isDown = true;
+        slider.style.scrollSnapType = 'none';
         startX = e.pageX - slider.offsetLeft;
         scrollLeft = slider.scrollLeft;
-        slider.style.scrollSnapType = 'none';
       });
       slider.addEventListener('mouseleave', () => { isDown = false; slider.style.scrollSnapType = 'x mandatory'; });
       slider.addEventListener('mouseup', () => { isDown = false; slider.style.scrollSnapType = 'x mandatory'; });
       slider.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
+        if(!isDown) return;
         e.preventDefault();
         const x = e.pageX - slider.offsetLeft;
-        slider.scrollLeft = scrollLeft - (x - startX) * 2;
+        const walk = (x - startX) * 2;
+        slider.scrollLeft = scrollLeft - walk;
       });
 
-      // Touch Events (Móvil)
-      slider.addEventListener('touchstart', () => { isDown = true; clearInterval(autoScroll); });
-      slider.addEventListener('touchend', () => { isDown = false; });
+      // Auto-scroll suave
+      let autoScroll = setInterval(() => {
+        if (!isDown) {
+          slider.scrollLeft += 1;
+          if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth) slider.scrollLeft = 0;
+        }
+      }, 40);
+      slider.addEventListener('touchstart', () => clearInterval(autoScroll));
 
-      // Form
-      const iti = window.intlTelInput(document.querySelector("#telefono"), { initialCountry: "mx", utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" });
+      // Formulario
+      const iti = window.intlTelInput(document.querySelector("#telefono"), {
+        initialCountry: "mx",
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+      });
+
       document.getElementById('deepForm').addEventListener('submit', async (e) => {
         e.preventDefault();
         const btn = document.getElementById('btn');
         btn.innerText = "PROCESANDO...";
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxXHiXvM-urUNO4uFsrWK3_4x_iJDF6P_A65XcXBGcWtiMLzrtS-5CNGygyH1wyJy1uyQ/exec'; 
-        fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: JSON.stringify({ nombre: document.getElementById('nombre').value, email: document.getElementById('email').value, telefono: iti.getNumber() }) });
+        fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: JSON.stringify({
+            nombre: document.getElementById('nombre').value,
+            email: document.getElementById('email').value,
+            telefono: iti.getNumber()
+          }) 
+        });
         document.getElementById('deepForm').innerHTML = "<h2>Solicitud enviada</h2><p>Redirigiendo...</p>";
         setTimeout(() => { window.location.href = "https://deepnessmen.com/prueba"; }, 2000);
       });
