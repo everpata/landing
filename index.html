@@ -32,7 +32,6 @@
       header { padding: 60px 0 0 0; } 
       .header-logo { width: 100%; max-width: 380px; height: auto; margin-bottom: 40px; display: block; border-radius: 12px; }
 
-      /* TÍTULOS Y SUBTÍTULOS POR DEFECTO EN #878787 */
       h1 { 
         font-size: clamp(32px, 7vw, 54px); 
         font-weight: 700; 
@@ -52,24 +51,20 @@
         line-height: 1.1; 
       }
 
-      /* Clases para realzar con #333333 */
       .h-highlight { color: var(--primary); }
       .mb-gap { margin-bottom: var(--gap); }
 
-      /* --- AJUSTE SOLICITADO: Párrafos en #878787 para sofisticación --- */
       p { 
         font-size: 18px; 
-        color: var(--secondary); /* Cambiado de --primary a --secondary */
+        color: var(--secondary); 
         font-weight: 400; 
         margin-top: 0; 
         margin-bottom: 24px; 
       }
-      /* Mantenemos las negritas dentro de párrafos en color fuerte */
       p strong { color: var(--primary); }
 
       .text-secondary { color: var(--secondary); }
       
-      /* --- TARJETAS DE CONTRASTE --- */
       .contrast-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: var(--gap); }
       .contrast-card { 
         background: var(--light-bg); 
@@ -77,7 +72,7 @@
         border-radius: 24px; 
         border: 1px solid #f2f2f2; 
         font-size: 16px; 
-        color: var(--primary); /* Texto interno de tarjeta mantiene fuerza */
+        color: var(--primary); 
       }
       .contrast-card-dark { 
         background: var(--darker-bg); 
@@ -85,10 +80,8 @@
       }
       .contrast-card strong { display: block; text-transform: uppercase; font-size: 12px; letter-spacing: 0.1em; color: var(--secondary); margin-bottom: 12px; }
 
-      /* --- CITA NORMALIZADA --- */
       .quote-block { font-size: 18px; font-weight: 500; color: #000; line-height: 1.6; border-left: 3px solid var(--primary); padding-left: 25px; margin-bottom: var(--gap); }
 
-      /* --- SLIDER DE DÍAS --- */
       .slider-section { margin-bottom: var(--gap); overflow: hidden; }
       .days-slider { 
         display: flex; 
@@ -104,22 +97,18 @@
       .day-card { flex: 0 0 320px; background: var(--light-bg); padding: 35px; border-radius: 28px; border: 1px solid #f2f2f2; scroll-snap-align: start; }
       .day-tag { font-weight: 800; font-size: 12px; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; }
       .day-card h4 { font-size: 22px; margin: 15px 0 10px 0; color: var(--primary); }
-      /* Párrafos dentro de cards usan tamaño menor pero color sofisticado */
       .day-card p { font-size: 14px; color: var(--secondary); line-height: 1.5; margin-bottom: 10px; }
       .live-label { font-size: 11px; font-weight: 800; text-transform: uppercase; background: #000; color: #fff; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
       .scroll-hint { font-size: 12px; color: var(--secondary); margin-top: 5px; display: flex; align-items: center; gap: 8px; opacity: 0.8; }
 
       .content-block { margin-bottom: var(--gap); }
 
-      /* --- AVISO RESTRINGIDO --- */
       .aviso-section { margin-bottom: var(--gap); padding: 40px; background: #fafafa; border-radius: 24px; border: 1px solid #f0f0f0; }
       .info-item { margin-bottom: 30px; }
       .info-item:last-child { margin-bottom: 0; }
       .info-item strong { display: block; font-size: 17px; margin-bottom: 8px; color: #000; }
-      /* Texto info item ya hereda el #878787 */
       .info-item p { font-size: 15px; margin: 0; }
 
-      /* --- NO PIERDAS TU TIEMPO --- */
       .warning-section { margin-bottom: var(--gap); padding: 40px; border-radius: 24px; background: #333; color: #fff; }
       .warning-section h2 { color: var(--white); } 
       .warning-section h2 .h-highlight { color: var(--white); } 
@@ -128,16 +117,32 @@
       .warning-item strong { display: block; color: #fff; margin-bottom: 5px; }
       .warning-item span { color: #878787; font-size: 15px; }
 
-      /* --- FORMULARIO --- */
       .form-section { margin-bottom: var(--gap); padding: 50px 30px; background: var(--white); border-radius: 32px; border: 1px solid #eee; text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.06); }
-      /* Form context ya hereda #878787 y tamaño ajustado */
       .form-context { font-size: 15px; color: var(--secondary); margin-bottom: 8px; margin-top: 0; }
       input { width: 100%; padding: 18px; margin: 10px 0; border: 1px solid #d2d2d7; border-radius: 14px; background: #f5f5f7; font-size: 16px; box-sizing: border-box; text-align: left; color: var(--primary); }
       .iti { width: 100%; text-align: left; }
       button { width: 100%; padding: 20px; background: var(--primary); color: white; border: none; border-radius: 16px; font-size: 18px; font-weight: 600; cursor: pointer; margin-top: 15px; }
 
       .about-section { padding: 80px 0; border-top: 1px solid #eee; }
-      .signature { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--secondary); margin-top: 30px; font-weight: 700; }
+      
+      /* --- ESTILO PARA EL LOGO EN LA FIRMA --- */
+      .signature-container { 
+        display: flex; 
+        align-items: center; 
+        gap: 12px; 
+        margin-top: 30px;
+      }
+      .sig-logo { 
+        width: 24px; /* Ajusta el tamaño de tu logo aquí */
+        height: auto;
+      }
+      .signature { 
+        font-size: 13px; 
+        letter-spacing: 2px; 
+        text-transform: uppercase; 
+        color: var(--secondary); 
+        font-weight: 700; 
+      }
 
       @media (max-width: 600px) {
         .contrast-grid { grid-template-columns: 1fr; }
@@ -192,21 +197,20 @@
           <div class="day-card">
             <span class="day-tag">Día 01 - 27 de Abril</span>
             <h4>La renuncia.</h4>
-            <p>Encontraremos tu fuga de poder y localizaremos la máscara de validación que usas para "encajar" y que, irónicamente, es la que te hace sentir "insuficiente" ante las mujeres que te interesan. Identificaremos ese lastre impuesto por otros para que puedas soltarlo antes de que el peso te quiebre en la profundidad.</p>
+            <p>Encontraremos tu fuga de poder y localizaremos la máscara de validación que usas para "encajar".</p>
           </div>
           <div class="day-card">
             <span class="day-tag">Día 02</span>
             <h4>La fuente.</h4>
-            <p>Analizaremos mis interacciones crudas en la trinchera, no para que me imites, sino para que veas los errores invisibles que tú cometes que activan el rechazo antes de que abras la boca y matan la atracción al instante. Conocerás cara a cara al saboteador invisible que te ha mantenido relegado a ser la segunda opción.</p>
+            <p>Analizaremos errores invisibles que activan el rechazo antes de que abras la boca.</p>
             <div class="live-label">Sesión en vivo (15 min)</div>
-            <p style="font-size: 13px; font-style: italic; color: var(--secondary);">Inspección de carga: Una intervención en directo para confrontar la mentira que sostiene tu máscara actual.</p>
+            <p style="font-size: 13px; font-style: italic; color: var(--secondary);">Inspección de carga: Intervención en directo.</p>
           </div>
           <div class="day-card">
             <span class="day-tag">Día 03</span>
             <h4>El punto de no retorno.</h4>
-            <p>Recibirás el Veredicto Final y los criterios de profundidad para que el miedo al juicio ajeno deje de ser tu brújula. Te compartiré la ruta para dejar de ser el conej que huye al hombre que atrae por su propia fuerza de gravedad.</p>
+            <p>Recibirás el Veredicto Final y los criterios de profundidad.</p>
             <div class="live-label">Sesión en vivo (15 min)</div>
-            <p style="font-size: 13px; font-style: italic; color: var(--secondary);">El veredicto final: Una intervención para dictar la orden de salida y fijar los criterios de profundidad.</p>
           </div>
         </div>
         <div class="scroll-hint">
@@ -217,55 +221,23 @@
 
       <section class="content-block reveal">
         <h2>Un <span class="h-highlight">diagnóstico real</span> requiere precisión.</h2>
-        <p>Mis intervenciones en vivo son de 15 minutos de absoluta densidad. Entro, localizo el lastre y fijo la orden. Si buscas a alguien que te entretenga, ve al circo.</p>
-        <p>Si buscas al especialista que identifique el fallo que te mantiene siendo un títere en la superficie, nos vemos en la sesión.</p>
+        <p>Mis intervenciones en vivo son de 15 minutos de absoluta densidad. Entro, localizo el lastre y fijo la orden.</p>
       </section>
 
       <section class="content-block reveal">
         <h2>Este primer paso <span class="h-highlight">no tiene costo económico.</span></h2>
         <p>Pero sí un precio: abandonar la superficialidad.</p>
-        <p>Si estás listo para dejar de conformarte con migajas de atención y empezar a ser el hombre que elige su propia realidad, entra ahora.</p>
       </section>
 
       <section class="aviso-section reveal">
         <h2>Aviso de <span class="h-highlight">acceso restringido</span></h2>
-        <p style="font-size: 15px; margin-bottom: 30px;">El Deepfall no es un evento masivo de "autoayuda" ni un curso de tácticas de seducción para principiantes. El sistema está diseñado exclusivamente para hombres que operan en entornos de alta exigencia.</p>
-        <div class="info-item">
-          <strong>Perfil operativo:</strong>
-          <p>Eres líder técnico, dueño de negocio o un perfil de alto rendimiento con responsabilidad real sobre sistemas, equipos o capital.</p>
-        </div>
-        <div class="info-item">
-          <strong>Consciencia de fuga:</strong>
-          <p>Tienes más de 30 años y has identificado que tu complacencia no es "bondad", sino una fuga de estatus que te está costando el liderazgo, el mando profesional y el respeto de las mujeres que realmente te interesan.</p>
-        </div>
-        <div class="info-item">
-          <strong>Disposición al desmantelamiento:</strong>
-          <p>No buscas "consejos" ni paños tibios, buscas una reingeniería. Estás listo para desmantelar tu identidad actual para construir una densidad real e inamovible.</p>
-        </div>
-        <div class="info-item">
-            <strong>Compromiso de recursos:</strong>
-            <p>Entiendes que este tramo 01 no tiene costo económico, pero la transformación e integración de una identidad densa en los tramos sucesivos exige una inversión deliberada y seria de tus tres activos principales: tiempo, energía y capital.</p>
-          </div>
+        <div class="info-item"><strong>Perfil operativo:</strong> <p>Líder técnico, dueño de negocio o perfil de alto rendimiento.</p></div>
+        <div class="info-item"><strong>Consciencia de fuga:</strong> <p>Tienes más de 30 años y tu complacencia te está costando el liderazgo.</p></div>
       </section>
 
       <section class="warning-section reveal">
         <h2><span class="h-highlight">No pierdas tu tiempo</span> <span class="h-mute">(ni el mío) si:</span></h2>
-        <div class="warning-item">
-          <strong>Buscas "frases mágicas"</strong>
-          <span>Si tu intención es coleccionar trucos de ligue para el fin de semana en lugar de integrar marcos mentales de fondo.</span>
-        </div>
-        <div class="warning-item">
-          <strong>Mendicidad intelectual</strong>
-          <span>Si tienes una mentalidad de escasez, buscas contenido gratuito para "ver qué pasa" o no valoras la transferencia de tecnología humana.</span>
-        </div>
-        <div class="warning-item">
-          <strong>Fragilidad emocional</strong>
-          <span>Si no eres capaz de sostener una verdad cruda sobre tu propia incompetencia sin sentirte ofendido o buscar culpables externos.</span>
-        </div>
-        <div class="warning-item">
-          <strong>Adicción a la comodidad</strong>
-          <span>Si tu prioridad es el bienestar inmediato y no la densidad. Los siguientes tramos requieren incomodidad deliberada.</span>
-        </div>
+        <div class="warning-item"><strong>Buscas "frases mágicas"</strong> <span>Prefieres trucos de ligue a marcos mentales de fondo.</span></div>
       </section>
 
       <section class="form-section reveal" id="registro">
@@ -282,8 +254,11 @@
       <section class="about-section reveal">
         <h2><span class="h-highlight">Sobre mí</span></h2>
         <p>Yo estuve ahí. Fui el tipo que encajaba en todo pero no pertenecía a nada. Construí mi libertad desmantelando las mismas mentiras que hoy te están asfixiando a ti.</p>
-        <p class="text-secondary">No te voy a enseñar a "ser mejor", te voy a enseñar a dejar de mentirte.</p>
-        <div class="signature">Deepfall</div>
+        
+        <div class="signature-container">
+          <img src="df.jpeg" alt="Logo" class="sig-logo">
+          <div class="signature">Deepfall</div>
+        </div>
       </section>
     </div>
 
@@ -306,40 +281,24 @@
         }, 35);
         slider.addEventListener('touchstart', () => clearInterval(autoScroll));
       } else {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
+        let isDown = false; let startX; let scrollLeft;
         slider.addEventListener('mousedown', (e) => {
-          isDown = true;
-          slider.style.scrollSnapType = 'none';
-          startX = e.pageX - slider.offsetLeft;
-          scrollLeft = slider.scrollLeft;
+          isDown = true; slider.style.scrollSnapType = 'none';
+          startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft;
         });
-        slider.addEventListener('mouseleave', () => {
-          isDown = false;
-          slider.style.scrollSnapType = 'x mandatory';
-        });
-        slider.addEventListener('mouseup', () => {
-          isDown = false;
-          slider.style.scrollSnapType = 'x mandatory';
-        });
+        slider.addEventListener('mouseleave', () => { isDown = false; slider.style.scrollSnapType = 'x mandatory'; });
+        slider.addEventListener('mouseup', () => { isDown = false; slider.style.scrollSnapType = 'x mandatory'; });
         slider.addEventListener('mousemove', (e) => {
-          if (!isDown) return;
-          e.preventDefault();
-          const x = e.pageX - slider.offsetLeft;
-          const walk = (x - startX) * 2;
+          if (!isDown) return; e.preventDefault();
+          const x = e.pageX - slider.offsetLeft; const walk = (x - startX) * 2;
           slider.scrollLeft = scrollLeft - walk;
         });
       }
 
-      /* CONFIGURACIÓN CON DETECCIÓN DE PAÍS */
       const iti = window.intlTelInput(document.querySelector("#telefono"), {
         initialCountry: "auto",
         geoIpLookup: function(success, failure) {
-          fetch("https://ipapi.co/json")
-            .then(res => res.json())
-            .then(data => success(data.country_code))
-            .catch(() => success("mx")); // Si falla, por defecto México
+          fetch("https://ipapi.co/json").then(res => res.json()).then(data => success(data.country_code)).catch(() => success("mx"));
         },
         utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
       });
@@ -350,9 +309,7 @@
         btn.innerText = "PROCESANDO...";
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxXHiXvM-urUNO4uFsrWK3_4x_iJDF6P_A65XcXBGcWtiMLzrtS-5CNGygyH1wyJy1uyQ/exec'; 
         fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: JSON.stringify({
-            nombre: document.getElementById('nombre').value,
-            email: document.getElementById('email').value,
-            telefono: iti.getNumber()
+            nombre: document.getElementById('nombre').value, email: document.getElementById('email').value, telefono: iti.getNumber()
           }) 
         });
         setTimeout(() => { window.location.href = "https://deepnessmen.com/prueba"; }, 2000);
