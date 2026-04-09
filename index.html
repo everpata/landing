@@ -2,82 +2,232 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deepfall | Solicitud de Descenso</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Deepfall | El Descenso</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+    
     <style>
-        :root { --primary: #333333; --secondary: #878787; }
-        body { margin: 0; background: #fff; font-family: -apple-system, sans-serif; color: var(--primary); }
-        .wrapper { max-width: 600px; margin: 0 auto; padding: 60px 20px; text-align: center; }
-        h1 { font-size: 42px; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 40px; }
-        .card-slider { display: flex; overflow-x: auto; gap: 15px; padding: 20px 0; scrollbar-width: none; }
-        .card-slider::-webkit-scrollbar { display: none; }
-        .card { flex: 0 0 280px; background: #fbfbfd; padding: 30px; border-radius: 24px; border: 1px solid #eee; text-align: left; }
-        .form-box { margin-top: 80px; padding: 40px; border-radius: 30px; border: 1px solid #f0f0f0; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        input { width: 100%; padding: 18px; margin: 10px 0; border: 1px solid #ddd; border-radius: 16px; font-size: 16px; box-sizing: border-box; }
-        button { width: 100%; padding: 18px; background: var(--primary); color: #fff; border: none; border-radius: 16px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 20px; }
-        #msg { display: none; padding: 40px 0; }
+      :root {
+        --primary: #333333;
+        --secondary: #878787;
+        --bg: #ffffff;
+        --apple-ease: cubic-bezier(0.28, 0.11, 0.32, 1);
+      }
+
+      /* --- RESET TOTAL (Ya no estamos en una caja) --- */
+      body { 
+        margin: 0; 
+        padding: 0;
+        background-color: var(--bg); 
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif; 
+        color: var(--primary); 
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 700px; /* Un poco más ancho para lectura premium */
+        margin: 0 auto;
+        padding: 80px 24px; /* Espaciado elegante */
+        box-sizing: border-box;
+      }
+
+      /* Animaciones de Revelado */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s var(--apple-ease);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      h1 { 
+        font-size: clamp(32px, 8vw, 52px); 
+        font-weight: 700; 
+        letter-spacing: -0.022em; 
+        line-height: 1.1;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .intro-text {
+        font-size: 21px;
+        color: var(--secondary);
+        text-align: center;
+        margin-bottom: 80px;
+        font-weight: 400;
+      }
+
+      /* --- SLIDER DE DÍAS (Súper fluido) --- */
+      .days-section { margin: 80px 0; }
+      .days-header { text-align: center; margin-bottom: 40px; }
+      
+      .days-slider {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+        padding: 20px 4px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+      .days-slider::-webkit-scrollbar { display: none; }
+
+      .day-card {
+        flex: 0 0 280px;
+        background: #fbfbfd;
+        padding: 40px;
+        border-radius: 28px;
+        scroll-snap-align: center;
+        border: 1px solid #f2f2f2;
+        transition: transform 0.3s ease;
+      }
+      .day-card:hover { transform: scale(1.02); }
+      .day-card h3 { font-size: 24px; margin: 15px 0; }
+      .day-card p { font-size: 15px; color: var(--secondary); margin: 0; }
+
+      /* --- FORMULARIO REDISEÑADO --- */
+      .form-box {
+        margin: 100px 0;
+        padding: 60px 40px;
+        background: #ffffff;
+        border-radius: 32px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+        text-align: center;
+        border: 1px solid #f5f5f7;
+      }
+
+      input { 
+        width: 100%; padding: 18px; margin: 12px 0; 
+        border: 1px solid #d2d2d7; border-radius: 14px; 
+        background: #f5f5f7; font-size: 17px; 
+        box-sizing: border-box;
+        transition: all 0.2s ease;
+      }
+      input:focus { border-color: var(--primary); background: #fff; outline: none; }
+
+      .iti { width: 100%; text-align: left; margin: 12px 0; }
+
+      button, .btn-final { 
+        width: 100%; padding: 20px; 
+        background: var(--primary); color: white; 
+        border: none; border-radius: 14px; 
+        font-size: 18px; font-weight: 600; 
+        cursor: pointer; margin-top: 20px;
+        transition: opacity 0.2s ease;
+      }
+      button:active { opacity: 0.8; }
+
+      #mensaje-exito { display: none; flex-direction: column; align-items: center; }
+
+      footer { margin-top: 100px; text-align: center; color: var(--secondary); font-size: 14px; }
     </style>
-</head>
-<body>
-    <div class="wrapper">
-        <h1>Tú quieres escoger,<br>no ser escogido.</h1>
-        
-        <div class="card-slider">
-            <div class="card"><h3>Día 01</h3><p>La renuncia a la validación externa.</p></div>
-            <div class="card"><h3>Día 02</h3><p>La fuente y errores invisibles.</p></div>
-            <div class="card"><h3>Día 03</h3><p>El veredicto final y la densidad.</p></div>
+  </head>
+  <body>
+
+    <div class="container">
+      
+      <h1 class="reveal">Tú quieres escoger,<br>no ser escogido.</h1>
+      
+      <p class="intro-text reveal">El Deepfall es el proceso de desmantelamiento de tu necesidad de ser validado. El descenso hacia tu verdad.</p>
+
+      <div class="days-section reveal">
+        <div class="days-header">
+          <h2>El tramo 01</h2>
+        </div>
+        <div class="days-slider">
+          <div class="day-card">
+            <small style="color:var(--secondary); font-weight:700;">DÍA 01</small>
+            <h3>La renuncia.</h3>
+            <p>Localizaremos la máscara de validación que te hace sentir insuficiente ante ellas.</p>
+          </div>
+          <div class="day-card">
+            <small style="color:var(--secondary); font-weight:700;">DÍA 02</small>
+            <h3>La fuente.</h3>
+            <p>Errores invisibles que matan la atracción. Intervención en directo para fijar orden.</p>
+          </div>
+          <div class="day-card">
+            <small style="color:var(--secondary); font-weight:700;">DÍA 03</small>
+            <h3>El veredicto.</h3>
+            <p>La ruta final para dejar de ser el conejo y convertirte en el hombre denso.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-box reveal">
+        <div id="form-ui">
+          <h2 style="margin-top:0;">Solicitar acceso</h2>
+          <form id="deepForm">
+            <input type="text" id="nombre" placeholder="Nombre completo" required>
+            <input type="email" id="email" placeholder="Correo electrónico" required>
+            <input type="tel" id="telefono" required>
+            <button type="submit" id="btn">Quiero escoger</button>
+          </form>
         </div>
 
-        <div class="form-box">
-            <div id="form-ui">
-                <h2>Solicitar acceso</h2>
-                <form id="deepForm">
-                    <input type="text" id="nombre" placeholder="Nombre completo" required>
-                    <input type="email" id="email" placeholder="Correo electrónico" required>
-                    <input type="tel" id="telefono" required>
-                    <button type="submit" id="btn">Quiero escoger</button>
-                </form>
-            </div>
-            <div id="msg">
-                <h2>Solicitud recibida</h2>
-                <p>Serás redirigido...</p>
-                <button onclick="window.location.href='https://deepnessmen.com/prueba'">CONTINUAR</button>
-            </div>
+        <div id="mensaje-exito">
+          <h2>Solicitud recibida</h2>
+          <p>Estamos procesando tu lugar...</p>
+          <button onclick="window.location.href='https://deepnessmen.com/prueba'" class="btn-final">CONTINUAR</button>
         </div>
+      </div>
+
+      <footer class="reveal">
+        <p>No te voy a enseñar a "ser mejor",<br>te voy a enseñar a dejar de mentirte.</p>
+      </footer>
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <script>
-        const iti = window.intlTelInput(document.querySelector("#telefono"), {
-            initialCountry: "mx",
-            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+      // --- ANIMACIÓN DE REVELADO ---
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // --- CONFIGURACIÓN DE TELÉFONO ---
+      const iti = window.intlTelInput(document.querySelector("#telefono"), {
+        initialCountry: "mx",
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+      });
+
+      // --- ENVÍO DE DATOS ---
+      document.getElementById('deepForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = document.getElementById('btn');
+        btn.innerText = "Enviando...";
+        btn.disabled = true;
+
+        const scriptURL = 'TU_URL_DE_WEB_APP_AQUI'; // <--- PEGA TU URL DE APPS SCRIPT AQUÍ
+
+        const datos = {
+          nombre: document.getElementById('nombre').value,
+          email: document.getElementById('email').value,
+          telefono: iti.getNumber()
+        };
+
+        // Al usar GitHub Pages (CORS), usamos fetch en modo no-cors para Google Scripts
+        fetch(scriptURL, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: JSON.stringify(datos)
         });
 
-        document.getElementById('deepForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            document.getElementById('btn').innerText = "Procesando...";
-            
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbxXHiXvM-urUNO4uFsrWK3_4x_iJDF6P_A65XcXBGcWtiMLzrtS-5CNGygyH1wyJy1uyQ/exec'; // <--- PEGA AQUÍ LA URL DE GOOGLE APPS SCRIPT
-            
-            const datos = {
-                nombre: document.getElementById('nombre').value,
-                email: document.getElementById('email').value,
-                telefono: iti.getNumber()
-            };
-
-            // Enviamos los datos a Google Sheets
-            fetch(scriptURL, {
-                method: 'POST',
-                mode: 'no-cors', // Importante para Google Scripts
-                body: JSON.stringify(datos)
-            });
-
-            // Mostramos éxito y redirigimos
-            document.getElementById('form-ui').style.display = 'none';
-            document.getElementById('msg').style.display = 'block';
-            setTimeout(() => { window.location.href = "https://deepnessmen.com/prueba"; }, 2000);
-        });
+        // Feedback inmediato (Estilo Apple: no esperamos a la red si no es crítico)
+        document.getElementById('form-ui').style.display = 'none';
+        document.getElementById('mensaje-exito').style.display = 'flex';
+        
+        setTimeout(() => {
+          window.location.href = "https://deepnessmen.com/prueba";
+        }, 2500);
+      });
     </script>
-</body>
+  </body>
 </html>
