@@ -20,7 +20,7 @@
         margin: 0; padding: 0; background: var(--white); 
         font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; 
         color: var(--primary); line-height: 1.7; -webkit-font-smoothing: antialiased;
-        text-align: left;
+        text-align: left; overflow-x: hidden;
       }
 
       .container { width: 100%; max-width: 700px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; }
@@ -36,7 +36,7 @@
       h2 { font-size: 26px; font-weight: 700; margin-bottom: 25px; letter-spacing: -0.01em; margin-top: 0; color: var(--secondary); line-height: 1.1; }
       .h-highlight { color: var(--primary); }
       
-      .mb-gap { margin-bottom: var(--gap); }
+      .mb-gap { margin-bottom: var(--gap); display: block; }
       p { font-size: 18px; color: var(--primary); font-weight: 400; margin-top: 0; margin-bottom: 24px; }
 
       /* --- TARJETAS DE CONTRASTE --- */
@@ -48,8 +48,8 @@
       /* --- CITA --- */
       .quote-block { font-size: 18px; font-weight: 500; color: #000; line-height: 1.6; border-left: 3px solid var(--primary); padding-left: 25px; margin-bottom: var(--gap); }
 
-      /* --- SLIDER DE DÍAS (DENTRO DEL CONTAINER) --- */
-      .slider-section { margin-bottom: var(--gap); overflow: hidden; }
+      /* --- SLIDER DE DÍAS --- */
+      .slider-section { margin-bottom: var(--gap); overflow: hidden; position: relative; }
       .days-slider { 
         display: flex; 
         gap: 20px; 
@@ -58,9 +58,10 @@
         scrollbar-width: none; 
         padding: 20px 0;
         cursor: grab;
+        -webkit-overflow-scrolling: touch;
       }
-      .days-slider:active { cursor: grabbing; }
       .days-slider::-webkit-scrollbar { display: none; }
+      .days-slider:active { cursor: grabbing; }
       
       .day-card { 
         flex: 0 0 320px; 
@@ -73,20 +74,13 @@
       }
       .day-tag { font-weight: 800; font-size: 12px; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; }
       .day-card h4 { font-size: 22px; margin: 15px 0 10px 0; }
-      .day-card p { font-size: 14px; color: var(--secondary); line-height: 1.5; margin-bottom: 10px; }
+      .day-card p { font-size: 14px; color: var(--secondary); line-height: 1.5; margin-bottom: 15px; }
       .live-label { font-size: 11px; font-weight: 800; text-transform: uppercase; background: #000; color: #fff; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
-      .scroll-hint { font-size: 12px; color: var(--secondary); margin-top: 5px; display: flex; align-items: center; gap: 8px; opacity: 0.8; }
 
-      /* --- AVISO RESTRINGIDO --- */
-      .aviso-section { margin-bottom: var(--gap); padding: 40px; background: #fafafa; border-radius: 24px; border: 1px solid #f0f0f0; }
-      .info-item { margin-bottom: 30px; }
-      .info-item:last-child { margin-bottom: 0; }
-      .info-item strong { display: block; font-size: 17px; margin-bottom: 8px; color: #000; }
-      .info-item p { font-size: 15px; color: var(--secondary); margin: 0; }
-
-      /* --- NO PIERDAS TU TIEMPO --- */
+      /* --- SECCIÓN OCURA (CORRECCIÓN DE COLOR) --- */
       .warning-section { margin-bottom: var(--gap); padding: 40px; border-radius: 24px; background: #333; color: #fff; }
-      .warning-section h2 { color: #fff; }
+      .warning-section h2 { color: #878787; } /* Gris por defecto */
+      .warning-section h2 .h-highlight { color: #ffffff; } /* Blanco para que se lea en fondo negro */
       .warning-item { padding: 10px 0; margin-bottom: 10px; }
       .warning-item strong { display: block; color: #fff; margin-bottom: 5px; }
       .warning-item span { color: #878787; font-size: 15px; }
@@ -113,11 +107,10 @@
       <header class="reveal">
         <img src="rey.001.jpeg" alt="Deepfall" class="header-logo">
         <h1>Esta es la realidad: <span class="h-highlight">Tú quieres escoger,</span> no ser escogido.</h1>
+        <div class="mb-gap">
+          <p>Has pasado los últimos años construyendo una carrera, un nombre y una cuenta bancaria para ser "alguien". Pero cuando se trata de la mujer que realmente te acelera el pulso o de poner un límite en tu entorno, la seguridad desaparece.</p>
+        </div>
       </header>
-
-      <div class="reveal">
-        <p class="mb-gap">Has pasado los últimos años construyendo una carrera, un nombre y una cuenta bancaria para ser "alguien". Pero cuando se trata de la mujer que realmente te acelera el pulso o de poner un límite en tu entorno, la seguridad desaparece.</p>
-      </div>
 
       <div class="reveal">
         <div class="contrast-grid">
@@ -152,25 +145,22 @@
           <div class="day-card">
             <span class="day-tag">Día 01 - 27 de Abril</span>
             <h4>La renuncia.</h4>
-            <p>Encontraremos tu fuga de poder y localizaremos la máscara de validación que usas para "encajar" y que te hace sentir "insuficiente".</p>
+            <p>Encontraremos tu fuga de poder y localizaremos la máscara de validación que usas para "encajar" y que, irónicamente, es la que te hace sentir "insuficiente" ante las mujeres que te interesan. Identificaremos ese lastre impuesto por otros para que puedas soltarlo antes de que el peso te quiebre en la profundidad.</p>
           </div>
           <div class="day-card">
             <span class="day-tag">Día 02</span>
             <h4>La fuente.</h4>
-            <p>Errores invisibles que activan el rechazo antes de abrir la boca. Conocerás cara a cara al saboteador invisible.</p>
+            <p>Analizaremos mis interacciones crudas en la trinchera, no para que me imites, sino para que veas los errores invisibles que tú cometes que activan el rechazo antes de que abras la boca y matan la atracción al instante. Conocerás cara a cara al saboteador invisible que te ha mantenido relegado a ser la segunda opción.</p>
             <div class="live-label">Sesión en vivo (15 min)</div>
-            <p style="font-size: 13px; font-style: italic; color: var(--secondary);">Inspección de carga: Intervención en directo.</p>
+            <p style="font-size: 13px; font-style: italic; color: var(--secondary);">Inspección de carga: Una intervención en directo para confrontar la mentira que sostiene tu máscara actual.</p>
           </div>
           <div class="day-card">
             <span class="day-tag">Día 03</span>
-            <h4>Veredicto Final.</h4>
-            <p>Recibirás los criterios de profundidad para que el miedo al juicio deje de ser tu brújula. La ruta del hombre denso.</p>
+            <h4>El punto de no retorno.</h4>
+            <p>Recibirás el Veredicto Final y los criterios de profundidad para que el miedo al juicio ajeno deje de ser tu brújula. Te compartiré la ruta para dejar de ser el conejo que huye al hombre que atrae por su propia fuerza de gravedad.</p>
             <div class="live-label">Sesión en vivo (15 min)</div>
+            <p style="font-size: 13px; font-style: italic; color: var(--secondary);">El veredicto final: Una intervención para dictar la orden de salida y fijar los criterios de profundidad.</p>
           </div>
-        </div>
-        <div class="scroll-hint">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          Desliza o arrastra para ver más
         </div>
       </section>
 
@@ -192,28 +182,40 @@
         <h2>Aviso de <span class="h-highlight">acceso restringido</span></h2>
         <div class="info-item">
           <strong>Perfil operativo:</strong>
-          <p>Eres líder técnico, dueño de negocio o perfil de alto rendimiento con responsabilidad real.</p>
+          <p>Eres líder técnico, dueño de negocio o un perfil de alto rendimiento con responsabilidad real sobre sistemas, equipos o capital.</p>
         </div>
         <div class="info-item">
           <strong>Consciencia de fuga:</strong>
-          <p>Tienes más de 30 años y sabes que tu complacencia te está costando el liderazgo y el respeto.</p>
+          <p>Tienes más de 30 años y has identificado que tu complacencia no es "bondad", sino una fuga de estatus que te está costando el liderazgo, el mando profesional y el respeto de las mujeres que realmente te interesan.</p>
         </div>
         <div class="info-item">
           <strong>Disposición al desmantelamiento:</strong>
-          <p>No buscas consejos, buscas una reingeniería completa de tu identidad actual.</p>
+          <p>No buscas "consejos" ni paños tibios, buscas una reingeniería. Estás listo para desmantelar tu identidad actual para construir una densidad real e inamovible.</p>
         </div>
         <div class="info-item">
             <strong>Compromiso de recursos:</strong>
-            <p>Entiendes que la transformación exige una inversión deliberada de tiempo, energía y capital.</p>
+            <p>Entiendes que este tramo 01 no tiene costo económico, pero la transformación e integración de una identidad densa en los tramos sucesivos exige una inversión deliberada y seria de tus tres activos principales: tiempo, energía y capital.</p>
           </div>
       </section>
 
       <section class="warning-section reveal">
         <h2><span class="h-highlight">No pierdas tu tiempo</span> (ni el mío) si:</h2>
-        <div class="warning-item"><strong>Buscas "frases mágicas":</strong> <span>Prefieres trucos de ligue a marcos mentales de fondo.</span></div>
-        <div class="warning-item"><strong>Mendicidad intelectual:</strong> <span>Buscas contenido gratuito para "ver qué pasa" sin valorar la tecnología humana.</span></div>
-        <div class="warning-item"><strong>Fragilidad emocional:</strong> <span>No sostienes una verdad cruda sobre tu incompetencia.</span></div>
-        <div class="warning-item"><strong>Adicción a la comodidad:</strong> <span>Tu prioridad es el bienestar inmediato y no la densidad.</span></div>
+        <div class="warning-item">
+          <strong>Buscas "frases mágicas"</strong>
+          <span>Si tu intención es coleccionar trucos de ligue para el fin de semana en lugar de integrar marcos mentales de fondo.</span>
+        </div>
+        <div class="warning-item">
+          <strong>Mendicidad intelectual</strong>
+          <span>Si tienes una mentalidad de escasez, buscas contenido gratuito para "ver qué pasa" o no valoras la transferencia de tecnología humana.</span>
+        </div>
+        <div class="warning-item">
+          <strong>Fragilidad emocional</strong>
+          <span>Si no eres capaz de sostener una verdad cruda sobre tu propia incompetencia sin sentirte ofendido o buscar culpables externos.</span>
+        </div>
+        <div class="warning-item">
+          <strong>Adicción a la comodidad</strong>
+          <span>Si tu prioridad es el bienestar inmediato y no la densidad. Los siguientes tramos requieren incomodidad deliberada.</span>
+        </div>
       </section>
 
       <section class="form-section reveal" id="registro">
@@ -229,7 +231,7 @@
 
       <section class="about-section reveal">
         <h2><span class="h-highlight">Sobre mí</span></h2>
-        <p>Fui el tipo que encajaba en todo pero no pertenecía a nada. Construí mi libertad desmantelando las mismas mentiras que hoy te asfixian.</p>
+        <p>Yo estuve ahí. Fui el tipo que encajaba en todo pero no pertenecía a nada. Construí mi libertad desmantelando las mismas mentiras que hoy te están asfixiando a ti.</p>
         <p class="text-secondary">No te voy a enseñar a "ser mejor", te voy a enseñar a dejar de mentirte.</p>
         <div class="signature">Deepfall Engineering</div>
       </section>
@@ -237,56 +239,53 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <script>
-      // Reveal Animation
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
       }, { threshold: 0.1 });
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-      // --- CORRECCIÓN SLIDER PC (DRAG TO SCROLL) ---
+      // --- MOTOR DE SLIDER MEJORADO ---
       const slider = document.getElementById('daysSlider');
       let isDown = false, startX, scrollLeft;
+      let autoScrollActive = true;
 
+      // Auto-scroll suave
+      let scrollTimer = setInterval(() => {
+        if (autoScrollActive) {
+          slider.scrollLeft += 1;
+          if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth) slider.scrollLeft = 0;
+        }
+      }, 35);
+
+      // PC: Drag manual
       slider.addEventListener('mousedown', (e) => {
-        isDown = true;
+        isDown = true; autoScrollActive = false;
         slider.style.scrollSnapType = 'none';
         startX = e.pageX - slider.offsetLeft;
         scrollLeft = slider.scrollLeft;
       });
-      slider.addEventListener('mouseleave', () => { isDown = false; slider.style.scrollSnapType = 'x mandatory'; });
-      slider.addEventListener('mouseup', () => { isDown = false; slider.style.scrollSnapType = 'x mandatory'; });
+      slider.addEventListener('mouseleave', () => { isDown = false; autoScrollActive = true; slider.style.scrollSnapType = 'x mandatory'; });
+      slider.addEventListener('mouseup', () => { isDown = false; autoScrollActive = true; slider.style.scrollSnapType = 'x mandatory'; });
       slider.addEventListener('mousemove', (e) => {
-        if(!isDown) return;
+        if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 2;
-        slider.scrollLeft = scrollLeft - walk;
+        slider.scrollLeft = scrollLeft - (x - startX) * 2;
       });
 
-      // Auto-scroll suave
-      let autoScroll = setInterval(() => {
-        if (!isDown) {
-          slider.scrollLeft += 1;
-          if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth) slider.scrollLeft = 0;
-        }
-      }, 40);
-      slider.addEventListener('touchstart', () => clearInterval(autoScroll));
+      // MÓVIL: Pausar al tocar para evitar "glitch"
+      slider.addEventListener('touchstart', () => { autoScrollActive = false; clearInterval(scrollTimer); });
+      slider.addEventListener('touchend', () => { /* No reactivamos para dejar control al usuario tras tocar */ });
 
       // Formulario
-      const iti = window.intlTelInput(document.querySelector("#telefono"), {
-        initialCountry: "mx",
-        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
-      });
-
+      const iti = window.intlTelInput(document.querySelector("#telefono"), { initialCountry: "mx", utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" });
       document.getElementById('deepForm').addEventListener('submit', async (e) => {
         e.preventDefault();
         const btn = document.getElementById('btn');
         btn.innerText = "PROCESANDO...";
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxXHiXvM-urUNO4uFsrWK3_4x_iJDF6P_A65XcXBGcWtiMLzrtS-5CNGygyH1wyJy1uyQ/exec'; 
         fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: JSON.stringify({
-            nombre: document.getElementById('nombre').value,
-            email: document.getElementById('email').value,
-            telefono: iti.getNumber()
+            nombre: document.getElementById('nombre').value, email: document.getElementById('email').value, telefono: iti.getNumber()
           }) 
         });
         document.getElementById('deepForm').innerHTML = "<h2>Solicitud enviada</h2><p>Redirigiendo...</p>";
