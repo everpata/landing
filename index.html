@@ -26,21 +26,12 @@
       .reveal { opacity: 0; transform: translateY(30px); transition: all 1s var(--ease); }
       .reveal.active { opacity: 1; transform: translateY(0); }
 
-      /* --- ENCABEZADO Y IMAGEN AJUSTADA (-15%) --- */
+      /* --- ENCABEZADO --- */
       header { padding: 40px 0 60px; } 
-      
-      .header-logo {
-        width: 100%;
-        max-width: 380px; /* Reducción del 15% para PC */
-        height: auto;
-        margin-bottom: 35px;
-        display: block;
-        border-radius: 12px;
-      }
+      .header-logo { width: 100%; max-width: 380px; height: auto; margin-bottom: 35px; display: block; border-radius: 12px; }
 
       h1 { font-size: clamp(32px, 7vw, 54px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 30px; color: #000; }
-      h2 { font-size: 26px; font-weight: 700; margin-bottom: 25px; letter-spacing: -0.01em; }
-      h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--secondary); margin-bottom: 15px; }
+      h2 { font-size: 26px; font-weight: 700; margin-bottom: 25px; letter-spacing: -0.01em; margin-top: 60px; }
       
       p { font-size: 18px; color: var(--primary); margin-bottom: 24px; font-weight: 400; }
       .text-secondary { color: var(--secondary); }
@@ -48,113 +39,148 @@
       .intro-section { padding: 40px 0; border-bottom: 1px solid #eee; margin-bottom: 60px; }
       .quote-block { font-size: 22px; font-weight: 500; color: #000; line-height: 1.4; margin: 40px 0; border-left: 3px solid var(--primary); padding-left: 25px; }
 
-      /* --- 1) SLIDER DE DÍAS (MANTENIDO) --- */
+      /* --- 1) SLIDER DE DÍAS (AUTOSCROLL + TODO EL TEXTO) --- */
       .slider-section { margin: 80px 0; overflow: hidden; }
-      .days-slider { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 10px 0; }
+      .days-slider { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 20px 0; }
       .days-slider::-webkit-scrollbar { display: none; }
-      .day-card { flex: 0 0 290px; background: var(--light-bg); padding: 35px; border-radius: 28px; border: 1px solid #f2f2f2; scroll-snap-align: start; }
+      .day-card { flex: 0 0 320px; background: var(--light-bg); padding: 35px; border-radius: 28px; border: 1px solid #f2f2f2; scroll-snap-align: start; display: flex; flex-direction: column; }
       .day-tag { font-weight: 800; font-size: 12px; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; }
       .day-card h4 { font-size: 22px; margin: 15px 0 10px 0; }
-      .day-card p { font-size: 14px; color: var(--secondary); line-height: 1.5; margin: 0; }
+      .day-card p { font-size: 14px; color: var(--secondary); line-height: 1.5; margin-bottom: 15px; }
+      .live-label { font-size: 11px; font-weight: 800; text-transform: uppercase; background: #000; color: #fff; padding: 4px 8px; border-radius: 4px; align-self: flex-start; margin-top: auto; }
       .scroll-hint { font-size: 12px; color: var(--secondary); margin-top: 15px; display: flex; align-items: center; gap: 8px; opacity: 0.8; }
 
-      /* --- 2) AVISO RESTRINGIDO (MANTENIDO) --- */
+      /* --- 2) AVISO RESTRINGIDO --- */
       .aviso-section { margin: 80px 0; padding: 40px; background: #fafafa; border-radius: 24px; border: 1px solid #f0f0f0; }
       .info-item { margin-bottom: 30px; }
-      .info-item strong { display: block; font-size: 17px; margin-bottom: 5px; color: #000; }
-      .info-item p { font-size: 15px; color: var(--secondary); margin: 0; }
+      .info-item strong { display: block; font-size: 17px; margin-bottom: 8px; color: #000; }
+      .info-item p { font-size: 15px; color: var(--secondary); margin: 0; line-height: 1.6; }
 
-      /* --- SECCIONES "NO PIERDAS TU TIEMPO" --- */
+      /* --- NO PIERDAS TU TIEMPO --- */
       .warning-section { margin: 80px 0; padding: 40px; border-radius: 24px; background: #333; color: #fff; }
       .warning-section h2 { color: #fff; margin-top: 0; }
-      .warning-section p { color: #878787; font-size: 16px; border-bottom: 1px solid #444; padding-bottom: 15px; }
-      .warning-section p:last-child { border: none; }
+      .warning-item { border-bottom: 1px solid #444; padding: 15px 0; }
+      .warning-item:last-child { border: none; }
+      .warning-item strong { display: block; color: #fff; margin-bottom: 5px; }
+      .warning-item span { color: #878787; font-size: 15px; }
 
-      /* --- 3) FORMULARIO (MANTENIDO) --- */
+      /* --- 3) FORMULARIO --- */
       .form-section { margin: 100px 0; padding: 50px 30px; background: var(--white); border-radius: 32px; border: 1px solid #eee; text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.06); }
       input { width: 100%; padding: 18px; margin: 10px 0; border: 1px solid #d2d2d7; border-radius: 14px; background: #f5f5f7; font-size: 16px; box-sizing: border-box; text-align: left; }
       .iti { width: 100%; text-align: left; }
       button { width: 100%; padding: 20px; background: var(--primary); color: white; border: none; border-radius: 16px; font-size: 18px; font-weight: 600; cursor: pointer; margin-top: 15px; }
 
-      .about-section { padding: 80px 0; border-top: 1px solid #eee; }
-      .about-card { display: flex; flex-direction: column; gap: 20px; }
-      .signature { font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--secondary); margin-top: 20px; }
+      .about-section { padding: 80px 0; border-top: 1px solid #eee; margin-top: 100px; }
+      .signature { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--secondary); margin-top: 30px; font-weight: 700; }
 
       @media (max-width: 480px) {
         .day-card { flex: 0 0 85%; }
         .aviso-section, .warning-section { padding: 30px 20px; }
-        .header-logo { max-width: 85%; } /* Reducción del 15% para móvil */
+        .header-logo { max-width: 85%; }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
 
     <div class="container">
       <header class="reveal">
         <img src="rey.001.jpeg" alt="Deepfall Context" class="header-logo">
-        <h3>Deepfall: El Descenso</h3>
         <h1>Esta es la realidad: Tú quieres escoger, no ser escogido.</h1>
+        <p>Has pasado los últimos años construyendo una carrera, un nombre y una cuenta bancaria para ser "alguien". Pero cuando se trata de la mujer que realmente te acelera el pulso o de poner un límite en tu entorno, la seguridad desaparece.</p>
+        <p>En el trabajo eres el líder técnico, el que resuelve, el que todos respetan. En privado eres el hombre que sobrepiensa un mensaje de WhatsApp por dos horas, el que se conforma con "lo que hay" para no estar solo y el que busca en el alcohol la valentía que no encuentra en su propia piel.</p>
+        <p><strong>Estás cansado de actuar. Estás cansado de ser el "buen tipo" que siempre termina en la zona de amigos o siendo la opción secundaria de alguien que ni siquiera te importa tanto.</strong></p>
       </header>
 
       <section class="intro-section reveal">
-        <p>Has pasado los últimos años construyendo una carrera, un nombre y una cuenta bancaria para ser "alguien". Pero cuando se trata de la mujer que realmente te acelera el pulso o de poner un límite en tu entorno, la seguridad desaparece.</p>
-        <p class="text-secondary">En el trabajo eres el líder técnico, el que resuelve, el que todos respetan. En privado eres el hombre que sobrepiensa un mensaje de WhatsApp por dos horas.</p>
+        <p>El Deepfall no es un entrenamiento… es el proceso de desmantelamiento de tu jodida necesidad de ser validado. Es el descenso consciente hacia tu verdad.</p>
         <div class="quote-block">
-          "Un hombre profundo es el centro de su propio mundo. Él escoge."
+          Un hombre sin densidad es como un corcho en el mar: se mueve según el humor de ella, la opinión de su jefe o el miedo al rechazo. Un hombre profundo es el centro de su propio mundo. Él escoge.
         </div>
       </section>
 
       <section class="slider-section reveal">
-        <h2>Lo que va a pasar en el tramo 01:</h2>
+        <h2>Esto es lo que va a pasar en el descenso (tramo 01):</h2>
         <div class="days-slider" id="daysSlider">
           <div class="day-card">
-            <span class="day-tag">Día 01</span>
+            <span class="day-tag">Día 01 - 27 de Abril</span>
             <h4>La renuncia.</h4>
-            <p>Encontraremos tu fuga de poder y localizaremos la máscara de validación que usas para "encajar".</p>
+            <p>Encontraremos tu fuga de poder y localizaremos la máscara de validación que usas para "encajar" y que, irónicamente, es la que te hace sentir "insuficiente" ante las mujeres que te interesan. Identificaremos ese lastre impuesto por otros para que puedas soltarlo antes de que el peso te quiebre en la profundidad.</p>
           </div>
           <div class="day-card">
             <span class="day-tag">Día 02</span>
             <h4>La fuente.</h4>
-            <p>Errores invisibles que activan el rechazo antes de que abras la boca. Conocerás al saboteador.</p>
+            <p>Analizaremos mis interacciones crudas en la trinchera, no para que me imites, sino para que veas los errores invisibles que tú cometes que activan el rechazo antes de que abras la boca y matan la atracción al instante. Conocerás cara a cara al saboteador invisible que te ha mantenido relegado a ser la segunda opción.</p>
+            <div class="live-label">Sesión en vivo (15 min)</div>
+            <p style="font-size: 13px; margin-top: 10px; font-style: italic;">Inspección de carga: Una intervención en directo para confrontar la mentira que sostiene tu máscara actual.</p>
           </div>
           <div class="day-card">
             <span class="day-tag">Día 03</span>
-            <h4>Veredicto Final.</h4>
-            <p>La ruta para dejar de ser el conejo que huye al hombre que atrae por su propia fuerza de gravedad.</p>
+            <h4>El punto de no retorno.</h4>
+            <p>Recibirás el Veredicto Final y los criterios de profundidad para que el miedo al juicio ajeno deje de ser tu brújula. Te compartiré la ruta para dejar de ser el conejo que huye al hombre que atrae por su propia fuerza de gravedad.</p>
+            <div class="live-label">Sesión en vivo (15 min)</div>
+            <p style="font-size: 13px; margin-top: 10px; font-style: italic;">El veredicto final: Una intervención para dictar la orden de salida y fijar los criterios de profundidad.</p>
           </div>
         </div>
         <div class="scroll-hint">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          Desliza para ver el tramo completo
+          Desliza para ver el detalle completo
         </div>
+      </section>
+
+      <section class="reveal">
+        <h2>Un diagnóstico real requiere precisión.</h2>
+        <p>Mis intervenciones en vivo son de 15 minutos de absoluta densidad. Entro, localizo el lastre y fijo la orden. Si buscas a alguien que te entretenga, ve al circo.</p>
+        <p>Si buscas al especialista que identifique el fallo que te mantiene siendo un títere en la superficie, nos vemos en la sesión.</p>
+        <p><strong>Este primer paso no tiene costo económico pero sí un precio: abandonar la superficialidad.</strong></p>
+        <p>Si estás listo para dejar de conformarte con migajas de atención y empezar a ser el hombre que elige su propia realidad, entra ahora.</p>
       </section>
 
       <section class="aviso-section reveal">
         <h2>Aviso de acceso restringido</h2>
+        <p style="font-size: 15px; color: var(--secondary); margin-bottom: 30px;">El Deepfall no es un evento masivo de "autoayuda" ni un curso de tácticas de seducción para principiantes. El sistema está diseñado exclusivamente para hombres que operan en entornos de alta exigencia.</p>
+        
         <div class="info-item">
-          <strong>Perfil operativo</strong>
-          <p>Líder técnico, dueño de negocio o perfil de alto rendimiento con responsabilidad real.</p>
+          <strong>Perfil operativo:</strong>
+          <p>Eres líder técnico, dueño de negocio o un perfil de alto rendimiento con responsabilidad real sobre sistemas, equipos o capital.</p>
         </div>
         <div class="info-item">
-          <strong>Consciencia de fuga</strong>
-          <p>Más de 30 años. Sabes que tu complacencia no es "bondad", sino una fuga de estatus.</p>
+          <strong>Consciencia de fuga:</strong>
+          <p>Tienes más de 30 años y has identificado que tu complacencia no es "bondad", sino una fuga de estatus que te está costando el liderazgo, el mando profesional y el respeto de las mujeres que realmente te interesan.</p>
         </div>
         <div class="info-item">
-          <strong>Disposición al desmantelamiento</strong>
-          <p>No buscas consejos, buscas una reingeniería completa de tu identidad actual.</p>
+          <strong>Disposición al desmantelamiento:</strong>
+          <p>No buscas "consejos" ni paños tibios, buscas una reingeniería. Estás listo para desmantelar tu identidad actual para construir una densidad real e inamovible.</p>
         </div>
+        <div class="info-item">
+            <strong>Compromiso de recursos:</strong>
+            <p>Entiendes que este tramo 01 no tiene costo económico, pero la transformación e integración de una identidad densa en los tramos sucesivos exige una inversión deliberada y seria de tus tres activos principales: tiempo, energía y capital.</p>
+          </div>
       </section>
 
       <section class="warning-section reveal">
-        <h2>No pierdas tu tiempo si:</h2>
-        <p>• Buscas "frases mágicas" o trucos de ligue de fin de semana.</p>
-        <p>• Tienes fragilidad emocional ante una verdad cruda sobre tu incompetencia.</p>
-        <p>• Tu prioridad es el bienestar inmediato y no la densidad.</p>
+        <h2>No pierdas tu tiempo (ni el mío) si:</h2>
+        <div class="warning-item">
+          <strong>Buscas "frases mágicas"</strong>
+          <span>Si tu intención es coleccionar trucos de ligue para el fin de semana en lugar de integrar marcos mentales de fondo.</span>
+        </div>
+        <div class="warning-item">
+          <strong>Mendicidad intelectual</strong>
+          <span>Si tienes una mentalidad de escasez, buscas contenido gratuito para "ver qué pasa" o no valoras la transferencia de tecnología humana.</span>
+        </div>
+        <div class="warning-item">
+          <strong>Fragilidad emocional</strong>
+          <span>Si no eres capaz de sostener una verdad cruda sobre tu propia incompetencia sin sentirte ofendido o buscar culpables externos.</span>
+        </div>
+        <div class="warning-item">
+          <strong>Adicción a la comodidad</strong>
+          <span>Si tu prioridad es el bienestar inmediato y no la densidad. Los siguientes tramos requieren incomodidad deliberada.</span>
+        </div>
       </section>
 
       <section class="form-section reveal" id="registro">
-        <h3 style="color:var(--primary); margin-bottom: 10px;">27 de Abril</h3>
+        <h3 style="color:var(--primary); margin-bottom: 10px;">La próxima edición será el 27 de abril.</h3>
         <h2 style="margin-top: 0;">Solicitar tu lugar</h2>
+        <p style="font-size: 14px; color: var(--secondary);">Escribe tu número de teléfono con el código de tu país (ej: +52...)</p>
         <form id="deepForm">
           <input type="text" id="nombre" placeholder="Nombre completo" required>
           <input type="email" id="email" placeholder="Correo electrónico" required>
@@ -162,18 +188,16 @@
           <button type="submit" id="btn">QUIERO ESCOGER</button>
         </form>
         <div id="mensaje-exito" style="display:none; padding:30px 0;">
-          <h2>Solicitud recibida</h2>
+          <h2>Solicitud enviada</h2>
           <p>Redirigiendo al sistema...</p>
         </div>
       </section>
 
       <section class="about-section reveal">
-        <div class="about-card">
-          <h2>Sobre mí</h2>
-          <p>Yo estuve ahí. Fui el tipo que encajaba en todo pero no pertenecía a nada. Construí mi libertad desmantelando las mismas mentiras que hoy te están asfixiando a ti.</p>
-          <p class="text-secondary">No te voy a enseñar a "ser mejor", te voy a enseñar a dejar de mentirte.</p>
-          <div class="signature">Deepfall Engineering</div>
-        </div>
+        <h2>Sobre mí</h2>
+        <p>Yo estuve ahí. Fui el tipo que encajaba en todo pero no pertenecía a nada. Construí mi libertad desmantelando las mismas mentiras que hoy te están asfixiando a ti.</p>
+        <p class="text-secondary">No te voy a enseñar a "ser mejor", te voy a enseñar a dejar de mentirte.</p>
+        <div class="signature">Deepfall Engineering</div>
       </section>
     </div>
 
@@ -183,14 +207,14 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) entry.target.classList.add('active');
         });
-      }, { threshold: 0.15 });
+      }, { threshold: 0.1 });
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
       const slider = document.getElementById('daysSlider');
       let autoScroll = setInterval(() => {
         slider.scrollBy({ left: 1, behavior: 'auto' });
         if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth) slider.scrollTo({left: 0});
-      }, 30);
+      }, 35);
       slider.addEventListener('touchstart', () => clearInterval(autoScroll));
 
       const iti = window.intlTelInput(document.querySelector("#telefono"), {
@@ -201,8 +225,9 @@
       document.getElementById('deepForm').addEventListener('submit', async (e) => {
         e.preventDefault();
         const btn = document.getElementById('btn');
-        btn.innerText = "ENVIANDO...";
+        btn.innerText = "PROCESANDO...";
         
+        // Link directo configurado
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxXHiXvM-urUNO4uFsrWK3_4x_iJDF6P_A65XcXBGcWtiMLzrtS-5CNGygyH1wyJy1uyQ/exec'; 
 
         fetch(scriptURL, { 
@@ -220,5 +245,5 @@
         setTimeout(() => { window.location.href = "https://deepnessmen.com/prueba"; }, 2000);
       });
     </script>
-  </body>
+</body>
 </html>
