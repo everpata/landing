@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
     <style>
       :root {
-        --primary: #333333; /* Color de realce */
-        --secondary: #878787; /* Color contextual */
+        --primary: #333333; /* Color de realce y textos fuertes */
+        --secondary: #878787; /* Color contextual y párrafos largos */
         --light-bg: #fbfbfd;
         --darker-bg: #f2f2f5; /* Gris ligeramente más oscuro */
         --white: #ffffff;
@@ -32,6 +32,7 @@
       header { padding: 60px 0 0 0; } 
       .header-logo { width: 100%; max-width: 380px; height: auto; margin-bottom: 40px; display: block; border-radius: 12px; }
 
+      /* TÍTULOS Y SUBTÍTULOS POR DEFECTO EN #878787 */
       h1 { 
         font-size: clamp(32px, 7vw, 54px); 
         font-weight: 700; 
@@ -51,10 +52,21 @@
         line-height: 1.1; 
       }
 
+      /* Clases para realzar con #333333 */
       .h-highlight { color: var(--primary); }
       .mb-gap { margin-bottom: var(--gap); }
 
-      p { font-size: 18px; color: var(--primary); font-weight: 400; margin-top: 0; margin-bottom: 24px; }
+      /* --- AJUSTE SOLICITADO: Párrafos en #878787 para sofisticación --- */
+      p { 
+        font-size: 18px; 
+        color: var(--secondary); /* Cambiado de --primary a --secondary */
+        font-weight: 400; 
+        margin-top: 0; 
+        margin-bottom: 24px; 
+      }
+      /* Mantenemos las negritas dentro de párrafos en color fuerte */
+      p strong { color: var(--primary); }
+
       .text-secondary { color: var(--secondary); }
       
       /* --- TARJETAS DE CONTRASTE --- */
@@ -65,6 +77,7 @@
         border-radius: 24px; 
         border: 1px solid #f2f2f2; 
         font-size: 16px; 
+        color: var(--primary); /* Texto interno de tarjeta mantiene fuerza */
       }
       .contrast-card-dark { 
         background: var(--darker-bg); 
@@ -72,7 +85,7 @@
       }
       .contrast-card strong { display: block; text-transform: uppercase; font-size: 12px; letter-spacing: 0.1em; color: var(--secondary); margin-bottom: 12px; }
 
-      /* --- CITA --- */
+      /* --- CITA NORMALIZADA --- */
       .quote-block { font-size: 18px; font-weight: 500; color: #000; line-height: 1.6; border-left: 3px solid var(--primary); padding-left: 25px; margin-bottom: var(--gap); }
 
       /* --- SLIDER DE DÍAS --- */
@@ -90,7 +103,8 @@
       .days-slider::-webkit-scrollbar { display: none; }
       .day-card { flex: 0 0 320px; background: var(--light-bg); padding: 35px; border-radius: 28px; border: 1px solid #f2f2f2; scroll-snap-align: start; }
       .day-tag { font-weight: 800; font-size: 12px; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; }
-      .day-card h4 { font-size: 22px; margin: 15px 0 10px 0; }
+      .day-card h4 { font-size: 22px; margin: 15px 0 10px 0; color: var(--primary); }
+      /* Párrafos dentro de cards usan tamaño menor pero color sofisticado */
       .day-card p { font-size: 14px; color: var(--secondary); line-height: 1.5; margin-bottom: 10px; }
       .live-label { font-size: 11px; font-weight: 800; text-transform: uppercase; background: #000; color: #fff; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
       .scroll-hint { font-size: 12px; color: var(--secondary); margin-top: 5px; display: flex; align-items: center; gap: 8px; opacity: 0.8; }
@@ -102,7 +116,8 @@
       .info-item { margin-bottom: 30px; }
       .info-item:last-child { margin-bottom: 0; }
       .info-item strong { display: block; font-size: 17px; margin-bottom: 8px; color: #000; }
-      .info-item p { font-size: 15px; color: var(--secondary); margin: 0; }
+      /* Texto info item ya hereda el #878787 */
+      .info-item p { font-size: 15px; margin: 0; }
 
       /* --- NO PIERDAS TU TIEMPO --- */
       .warning-section { margin-bottom: var(--gap); padding: 40px; border-radius: 24px; background: #333; color: #fff; }
@@ -113,10 +128,11 @@
       .warning-item strong { display: block; color: #fff; margin-bottom: 5px; }
       .warning-item span { color: #878787; font-size: 15px; }
 
-      /* --- FORMULARIO (AJUSTADO) --- */
+      /* --- FORMULARIO --- */
       .form-section { margin-bottom: var(--gap); padding: 50px 30px; background: var(--white); border-radius: 32px; border: 1px solid #eee; text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.06); }
+      /* Form context ya hereda #878787 y tamaño ajustado */
       .form-context { font-size: 15px; color: var(--secondary); margin-bottom: 8px; margin-top: 0; }
-      input { width: 100%; padding: 18px; margin: 10px 0; border: 1px solid #d2d2d7; border-radius: 14px; background: #f5f5f7; font-size: 16px; box-sizing: border-box; text-align: left; }
+      input { width: 100%; padding: 18px; margin: 10px 0; border: 1px solid #d2d2d7; border-radius: 14px; background: #f5f5f7; font-size: 16px; box-sizing: border-box; text-align: left; color: var(--primary); }
       .iti { width: 100%; text-align: left; }
       button { width: 100%; padding: 20px; background: var(--primary); color: white; border: none; border-radius: 16px; font-size: 18px; font-weight: 600; cursor: pointer; margin-top: 15px; }
 
@@ -213,7 +229,7 @@
 
       <section class="aviso-section reveal">
         <h2>Aviso de <span class="h-highlight">acceso restringido</span></h2>
-        <p style="font-size: 15px; color: var(--secondary); margin-bottom: 30px;">El Deepfall no es un evento masivo de "autoayuda" ni un curso de tácticas de seducción para principiantes. El sistema está diseñado exclusivamente para hombres que operan en entornos de alta exigencia.</p>
+        <p style="font-size: 15px; margin-bottom: 30px;">El Deepfall no es un evento masivo de "autoayuda" ni un curso de tácticas de seducción para principiantes. El sistema está diseñado exclusivamente para hombres que operan en entornos de alta exigencia.</p>
         <div class="info-item">
           <strong>Perfil operativo:</strong>
           <p>Eres líder técnico, dueño de negocio o un perfil de alto rendimiento con responsabilidad real sobre sistemas, equipos o capital.</p>
