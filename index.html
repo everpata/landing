@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
     <style>
       :root {
-        --primary: #333333;
-        --secondary: #878787;
+        --primary: #333333; /* Color de realce */
+        --secondary: #878787; /* Color contextual */
         --light-bg: #fbfbfd;
+        --darker-bg: #f2f2f5; /* NUEVO: Gris ligeramente más oscuro */
         --white: #ffffff;
         --ease: cubic-bezier(0.23, 1, 0.32, 1);
         --gap: 80px; 
@@ -31,8 +32,29 @@
       header { padding: 60px 0 0 0; } 
       .header-logo { width: 100%; max-width: 380px; height: auto; margin-bottom: 40px; display: block; border-radius: 12px; }
 
-      h1 { font-size: clamp(32px, 7vw, 54px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: var(--gap); color: #000; }
+      /* PUNTO 2: TÍTULOS Y SUBTÍTULOS POR DEFECTO EN #878787 */
+      h1 { 
+        font-size: clamp(32px, 7vw, 54px); 
+        font-weight: 700; 
+        letter-spacing: -0.03em; 
+        line-height: 1.0; /* Ajuste ligero de línea por peso visual */
+        margin-bottom: var(--gap); 
+        color: var(--secondary); /* Por defecto gris claro */
+      }
       
+      h2 { 
+        font-size: 26px; 
+        font-weight: 700; 
+        margin-bottom: 25px; 
+        letter-spacing: -0.01em; 
+        margin-top: 0; 
+        color: var(--secondary); /* Por defecto gris claro */
+        line-height: 1.1; 
+      }
+
+      /* Clases para realzar con #333333 */
+      .h-highlight { color: var(--primary); }
+
       .mb-gap { margin-bottom: var(--gap); }
 
       p { font-size: 18px; color: var(--primary); font-weight: 400; margin-top: 0; margin-bottom: 24px; }
@@ -40,7 +62,21 @@
       
       /* --- TARJETAS DE CONTRASTE --- */
       .contrast-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: var(--gap); }
-      .contrast-card { background: var(--light-bg); padding: 30px; border-radius: 24px; border: 1px solid #f2f2f2; font-size: 16px; }
+      
+      .contrast-card { 
+        background: var(--light-bg); 
+        padding: 30px; 
+        border-radius: 24px; 
+        border: 1px solid #f2f2f2; 
+        font-size: 16px; 
+      }
+
+      /* PUNTO 1: TARJETA "EN PRIVADO" MÁS OSCURA */
+      .contrast-card-dark { 
+        background: var(--darker-bg); 
+        border-color: #e8e8ed; 
+      }
+
       .contrast-card strong { display: block; text-transform: uppercase; font-size: 12px; letter-spacing: 0.1em; color: var(--secondary); margin-bottom: 12px; }
 
       /* --- CITA NORMALIZADA --- */
@@ -57,9 +93,6 @@
       .live-label { font-size: 11px; font-weight: 800; text-transform: uppercase; background: #000; color: #fff; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
       .scroll-hint { font-size: 12px; color: var(--secondary); margin-top: 5px; display: flex; align-items: center; gap: 8px; opacity: 0.8; }
 
-      /* --- ESTILO DE SUBTÍTULOS (H2) --- */
-      h2 { font-size: 26px; font-weight: 700; margin-bottom: 25px; letter-spacing: -0.01em; margin-top: 0; color: #000; line-height: 1.2; }
-
       /* --- SECCIONES INDIVIDUALES --- */
       .content-block { margin-bottom: var(--gap); }
 
@@ -72,7 +105,12 @@
 
       /* --- NO PIERDAS TU TIEMPO --- */
       .warning-section { margin-bottom: var(--gap); padding: 40px; border-radius: 24px; background: #333; color: #fff; }
-      .warning-section h2 { color: #fff; }
+      
+      /* Ajuste especial para h2 en sección oscura */
+      .warning-section h2 { color: var(--white); } 
+      .warning-section h2 .h-highlight { color: var(--white); } /* En fondo oscuro, el realce es blanco */
+      .warning-section h2 .h-mute { color: var(--secondary); }
+
       .warning-item { padding: 10px 0; margin-bottom: 10px; }
       .warning-item strong { display: block; color: #fff; margin-bottom: 5px; }
       .warning-item span { color: #878787; font-size: 15px; }
@@ -99,7 +137,7 @@
     <div class="container">
       <header class="reveal">
         <img src="rey.001.jpeg" alt="Deepfall Context" class="header-logo">
-        <h1>Esta es la realidad: Tú quieres escoger, no ser escogido.</h1>
+        <h1>Esta es la realidad: <span class="h-highlight">Tú quieres escoger,</span> no ser escogido.</h1>
       </header>
 
       <div class="reveal">
@@ -112,7 +150,7 @@
             <strong>En el trabajo</strong>
             En el trabajo eres el líder técnico, el que resuelve, el que todos respetan.
           </div>
-          <div class="contrast-card">
+          <div class="contrast-card contrast-card-dark">
             <strong>En privado</strong>
             En privado eres el hombre que sobrepiensa un mensaje de WhatsApp por dos horas, el que se conforma con "lo que hay" para no estar solo y el que busca en el alcohol la valentía que no encuentra en su propia piel.
           </div>
@@ -134,7 +172,7 @@
       </div>
 
       <section class="slider-section reveal">
-        <h2>Esto es lo que va a pasar en el descenso (tramo 01):</h2>
+        <h2>Esto es lo que va a pasar en el <span class="h-highlight">descenso (tramo 01):</span></h2>
         <div class="days-slider" id="daysSlider">
           <div class="day-card">
             <span class="day-tag">Día 01 - 27 de Abril</span>
@@ -163,19 +201,19 @@
       </section>
 
       <section class="content-block reveal">
-        <h2>Un diagnóstico real requiere precisión.</h2>
+        <h2>Un <span class="h-highlight">diagnóstico real</span> requiere precisión.</h2>
         <p>Mis intervenciones en vivo son de 15 minutos de absoluta densidad. Entro, localizo el lastre y fijo la orden. Si buscas a alguien que te entretenga, ve al circo.</p>
         <p>Si buscas al especialista que identifique el fallo que te mantiene siendo un títere en la superficie, nos vemos en la sesión.</p>
       </section>
 
       <section class="content-block reveal">
-        <h2>Este primer paso no tiene costo económico</h2>
+        <h2>Este primer paso <span class="h-highlight">no tiene costo económico</span></h2>
         <p>pero sí un precio: abandonar la superficialidad.</p>
         <p>Si estás listo para dejar de conformarte con migajas de atención y empezar a ser el hombre que elige su propia realidad, entra ahora.</p>
       </section>
 
       <section class="aviso-section reveal">
-        <h2>Aviso de acceso restringido</h2>
+        <h2>Aviso de <span class="h-highlight">acceso restringido</span></h2>
         <p style="font-size: 15px; color: var(--secondary); margin-bottom: 30px;">El Deepfall no es un evento masivo de "autoayuda" ni un curso de tácticas de seducción para principiantes. El sistema está diseñado exclusivamente para hombres que operan en entornos de alta exigencia.</p>
         <div class="info-item">
           <strong>Perfil operativo:</strong>
@@ -196,7 +234,7 @@
       </section>
 
       <section class="warning-section reveal">
-        <h2>No pierdas tu tiempo (ni el mío) si:</h2>
+        <h2><span class="h-highlight">No pierdas tu tiempo</span> <span class="h-mute">(ni el mío) si:</span></h2>
         <div class="warning-item">
           <strong>Buscas "frases mágicas"</strong>
           <span>Si tu intención es coleccionar trucos de ligue para el fin de semana en lugar de integrar marcos mentales de fondo.</span>
@@ -217,7 +255,7 @@
 
       <section class="form-section reveal" id="registro">
         <h3 style="color:var(--primary); margin-bottom: 10px;">La próxima edición será el 27 de abril.</h3>
-        <h2 style="margin-top: 0;">Solicitar tu lugar</h2>
+        <h2><span class="h-highlight">Solicitar tu lugar</span></h2>
         <form id="deepForm">
           <input type="text" id="nombre" placeholder="Nombre completo" required>
           <input type="email" id="email" placeholder="Correo electrónico" required>
@@ -231,7 +269,7 @@
       </section>
 
       <section class="about-section reveal">
-        <h2>Sobre mí</h2>
+        <h2><span class="h-highlight">Sobre mí</span></h2>
         <p>Yo estuve ahí. Fui el tipo que encajaba en todo pero no pertenecía a nada. Construí mi libertad desmantelando las mismas mentiras que hoy te están asfixiando a ti.</p>
         <p class="text-secondary">No te voy a enseñar a "ser mejor", te voy a enseñar a dejar de mentirte.</p>
         <div class="signature">Deepfall Engineering</div>
