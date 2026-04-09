@@ -12,7 +12,7 @@
         --light-bg: #fbfbfd;
         --white: #ffffff;
         --ease: cubic-bezier(0.23, 1, 0.32, 1);
-        --gap: 80px; /* El espaciado exacto que pediste */
+        --gap: 80px; 
       }
 
       body { 
@@ -33,10 +33,9 @@
 
       h1 { font-size: clamp(32px, 7vw, 54px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: var(--gap); color: #000; }
       
-      /* Clase para aplicar el margen exacto a párrafos y bloques */
       .mb-gap { margin-bottom: var(--gap); }
 
-      p { font-size: 18px; color: var(--primary); font-weight: 400; margin-top: 0; }
+      p { font-size: 18px; color: var(--primary); font-weight: 400; margin-top: 0; margin-bottom: 24px; }
       .text-secondary { color: var(--secondary); }
       
       /* --- TARJETAS DE CONTRASTE --- */
@@ -58,9 +57,11 @@
       .live-label { font-size: 11px; font-weight: 800; text-transform: uppercase; background: #000; color: #fff; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
       .scroll-hint { font-size: 12px; color: var(--secondary); margin-top: 5px; display: flex; align-items: center; gap: 8px; opacity: 0.8; }
 
-      /* --- SECCIÓN DIAGNÓSTICO --- */
-      h2 { font-size: 26px; font-weight: 700; margin-bottom: 25px; letter-spacing: -0.01em; margin-top: 0; }
-      .diagnostico-section { margin-bottom: var(--gap); }
+      /* --- ESTILO DE SUBTÍTULOS (H2) --- */
+      h2 { font-size: 26px; font-weight: 700; margin-bottom: 25px; letter-spacing: -0.01em; margin-top: 0; color: #000; line-height: 1.2; }
+
+      /* --- SECCIONES INDIVIDUALES --- */
+      .content-block { margin-bottom: var(--gap); }
 
       /* --- AVISO RESTRINGIDO --- */
       .aviso-section { margin-bottom: var(--gap); padding: 40px; background: #fafafa; border-radius: 24px; border: 1px solid #f0f0f0; }
@@ -80,10 +81,8 @@
       .form-section { margin-bottom: var(--gap); padding: 50px 30px; background: var(--white); border-radius: 32px; border: 1px solid #eee; text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.06); }
       input { width: 100%; padding: 18px; margin: 10px 0; border: 1px solid #d2d2d7; border-radius: 14px; background: #f5f5f7; font-size: 16px; box-sizing: border-box; text-align: left; }
       .iti { width: 100%; text-align: left; }
-      button { width: 100%; padding: 20px; background: var(--primary); color: white; border: none; border-radius: 16px; font-size: 18px; font-weight: 600; cursor: pointer; margin-top: 15px; transition: opacity 0.2s; }
-      button:hover { opacity: 0.9; }
+      button { width: 100%; padding: 20px; background: var(--primary); color: white; border: none; border-radius: 16px; font-size: 18px; font-weight: 600; cursor: pointer; margin-top: 15px; }
 
-      /* --- SOBRE MÍ --- */
       .about-section { padding: 80px 0; border-top: 1px solid #eee; }
       .signature { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--secondary); margin-top: 30px; font-weight: 700; }
 
@@ -163,11 +162,15 @@
         </div>
       </section>
 
-      <section class="diagnostico-section reveal">
+      <section class="content-block reveal">
         <h2>Un diagnóstico real requiere precisión.</h2>
         <p>Mis intervenciones en vivo son de 15 minutos de absoluta densidad. Entro, localizo el lastre y fijo la orden. Si buscas a alguien que te entretenga, ve al circo.</p>
         <p>Si buscas al especialista que identifique el fallo que te mantiene siendo un títere en la superficie, nos vemos en la sesión.</p>
-        <p><strong>Este primer paso no tiene costo económico pero sí un precio: abandonar la superficialidad.</strong></p>
+      </section>
+
+      <section class="content-block reveal">
+        <h2>Este primer paso no tiene costo económico</h2>
+        <p>pero sí un precio: abandonar la superficialidad.</p>
         <p>Si estás listo para dejar de conformarte con migajas de atención y empezar a ser el hombre que elige su propia realidad, entra ahora.</p>
       </section>
 
