@@ -56,10 +56,10 @@
       .h-highlight { color: var(--primary); }
       .mb-gap { margin-bottom: var(--gap); }
 
-      /* --- AJUSTE SOLICITADO: Párrafos en #878787 para sofisticación --- */
+      /* --- Párrafos en #878787 para sofisticación --- */
       p { 
         font-size: 18px; 
-        color: var(--secondary); /* Cambiado de --primary a --secondary */
+        color: var(--secondary); 
         font-weight: 400; 
         margin-top: 0; 
         margin-bottom: 24px; 
@@ -77,7 +77,7 @@
         border-radius: 24px; 
         border: 1px solid #f2f2f2; 
         font-size: 16px; 
-        color: var(--primary); /* Texto interno de tarjeta mantiene fuerza */
+        color: var(--primary); 
       }
       .contrast-card-dark { 
         background: var(--darker-bg); 
@@ -104,7 +104,6 @@
       .day-card { flex: 0 0 320px; background: var(--light-bg); padding: 35px; border-radius: 28px; border: 1px solid #f2f2f2; scroll-snap-align: start; }
       .day-tag { font-weight: 800; font-size: 12px; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; }
       .day-card h4 { font-size: 22px; margin: 15px 0 10px 0; color: var(--primary); }
-      /* Párrafos dentro de cards usan tamaño menor pero color sofisticado */
       .day-card p { font-size: 14px; color: var(--secondary); line-height: 1.5; margin-bottom: 10px; }
       .live-label { font-size: 11px; font-weight: 800; text-transform: uppercase; background: #000; color: #fff; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
       .scroll-hint { font-size: 12px; color: var(--secondary); margin-top: 5px; display: flex; align-items: center; gap: 8px; opacity: 0.8; }
@@ -116,7 +115,6 @@
       .info-item { margin-bottom: 30px; }
       .info-item:last-child { margin-bottom: 0; }
       .info-item strong { display: block; font-size: 17px; margin-bottom: 8px; color: #000; }
-      /* Texto info item ya hereda el #878787 */
       .info-item p { font-size: 15px; margin: 0; }
 
       /* --- NO PIERDAS TU TIEMPO --- */
@@ -130,26 +128,16 @@
 
       /* --- FORMULARIO --- */
       .form-section { margin-bottom: var(--gap); padding: 50px 30px; background: var(--white); border-radius: 32px; border: 1px solid #eee; text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.06); }
-      /* Form context ya hereda #878787 y tamaño ajustado */
       .form-context { font-size: 15px; color: var(--secondary); margin-bottom: 8px; margin-top: 0; }
       input { width: 100%; padding: 18px; margin: 10px 0; border: 1px solid #d2d2d7; border-radius: 14px; background: #f5f5f7; font-size: 16px; box-sizing: border-box; text-align: left; color: var(--primary); }
       .iti { width: 100%; text-align: left; }
       button { width: 100%; padding: 20px; background: var(--primary); color: white; border: none; border-radius: 16px; font-size: 18px; font-weight: 600; cursor: pointer; margin-top: 15px; }
 
       .about-section { padding: 80px 0; border-top: 1px solid #eee; }
-      .signature { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--secondary); margin-top: 30px; font-weight: 700; }
 
-      /* NUEVO: ESTILO PARA EL LOGO FINAL */
-      .final-logo-container {
-        margin-top: var(--gap);
-        padding-bottom: 60px;
-        text-align: left;
-      }
-      .final-logo {
-        width: 50px;
-        height: auto;
-        display: block;
-      }
+      /* --- ESTILO PARA EL LOGO FINAL --- */
+      .final-logo-container { margin-top: 35px; padding-bottom: 40px; }
+      .final-logo { width: 50px; height: auto; display: block; }
 
       @media (max-width: 600px) {
         .contrast-grid { grid-template-columns: 1fr; }
@@ -211,14 +199,13 @@
             <h4>La fuente.</h4>
             <p>Analizaremos errores invisibles que activan el rechazo antes de que abras la boca.</p>
             <div class="live-label">Sesión en vivo (15 min)</div>
-            <p style="font-size: 13px; font-style: italic; color: var(--secondary);">Inspección de carga: Intervención en directo.</p>
+            <p style="font-size: 13px; font-style: italic; color: var(--secondary);">Inspección de carga: Una intervención en directo para confrontar la mentira que sostiene tu máscara actual.</p>
           </div>
           <div class="day-card">
             <span class="day-tag">Día 03</span>
             <h4>El punto de no retorno.</h4>
             <p>Recibirás el Veredicto Final y los criterios de profundidad.</p>
             <div class="live-label">Sesión en vivo (15 min)</div>
-            <p style="font-size: 13px; font-style: italic; color: var(--secondary);">El veredicto final: Intervención para fijar los criterios de profundidad.</p>
           </div>
         </div>
         <div class="scroll-hint">
@@ -229,23 +216,34 @@
 
       <section class="content-block reveal">
         <h2>Un <span class="h-highlight">diagnóstico real</span> requiere precisión.</h2>
-        <p>Mis intervenciones en vivo son de 15 minutos de absoluta densidad. Entro, localizo el lastre y fijo la orden.</p>
+        <p>Mis intervenciones en vivo son de 15 minutos de absoluta densidad. Entro, localizo el lastre y fijo la orden. Si buscas a alguien que te entretenga, ve al circo.</p>
+        <p>Si buscas al especialista que identifique el fallo que te mantiene siendo un títere en la superficie, nos vemos en la sesión.</p>
       </section>
 
       <section class="content-block reveal">
-        <h2>Este primer paso <span class="h-highlight">no tiene costo económico.</span></h2>
-        <p>Pero sí un precio: abandonar la superficialidad.</p>
+        <h2>Este primer paso <span class="h-highlight">no tiene costo económico</span></h2>
+        <p>pero sí un precio: abandonar la superficialidad.</p>
+        <p>Si estás listo para dejar de conformarte con migajas de atención y empezar a ser el hombre que elige su propia realidad, entra ahora.</p>
       </section>
 
       <section class="aviso-section reveal">
         <h2>Aviso de <span class="h-highlight">acceso restringido</span></h2>
-        <div class="info-item"><strong>Perfil operativo:</strong> <p>Eres líder técnico, dueño de negocio o perfil de alto rendimiento.</p></div>
-        <div class="info-item"><strong>Consciencia de fuga:</strong> <p>Tienes más de 30 años y sabes que tu complacencia te está costando.</p></div>
+        <div class="info-item">
+          <strong>Perfil operativo:</strong>
+          <p>Eres líder técnico, dueño de negocio o un perfil de alto rendimiento con responsabilidad real sobre sistemas, equipos o capital.</p>
+        </div>
+        <div class="info-item">
+          <strong>Consciencia de fuga:</strong>
+          <p>Tienes más de 30 años y has identificado que tu complacencia no es "bondad", sino una fuga de estatus que te está costando el liderazgo.</p>
+        </div>
       </section>
 
       <section class="warning-section reveal">
         <h2><span class="h-highlight">No pierdas tu tiempo</span> <span class="h-mute">(ni el mío) si:</span></h2>
-        <div class="warning-item"><strong>Buscas "frases mágicas"</strong> <span>Si tu intención es coleccionar trucos de ligue.</span></div>
+        <div class="warning-item">
+          <strong>Buscas "frases mágicas"</strong>
+          <span>Si tu intención es coleccionar trucos de ligue para el fin de semana en lugar de integrar marcos mentales de fondo.</span>
+        </div>
       </section>
 
       <section class="form-section reveal" id="registro">
@@ -263,13 +261,11 @@
         <h2><span class="h-highlight">Sobre mí</span></h2>
         <p>Yo estuve ahí. Fui el tipo que encajaba en todo pero no pertenecía a nada. Construí mi libertad desmantelando las mismas mentiras que hoy te están asfixiando a ti.</p>
         <p class="text-secondary">No te voy a enseñar a "ser mejor", te voy a enseñar a dejar de mentirte.</p>
-        <div class="signature"></div>
+        
+        <div class="final-logo-container">
+          <img src="df.jpeg" alt="Logo" class="final-logo">
+        </div>
       </section>
-
-      <div class="final-logo-container reveal">
-        <img src="df.jpeg" alt="Logo" class="final-logo">
-      </div>
-
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
@@ -317,13 +313,14 @@
         });
       }
 
+      /* CONFIGURACIÓN CON DETECCIÓN DE PAÍS */
       const iti = window.intlTelInput(document.querySelector("#telefono"), {
         initialCountry: "auto",
         geoIpLookup: function(success, failure) {
           fetch("https://ipapi.co/json")
             .then(res => res.json())
             .then(data => success(data.country_code))
-            .catch(() => success("mx"));
+            .catch(() => success("mx")); // Si falla, por defecto México
         },
         utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
       });
