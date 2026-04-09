@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
     <style>
       :root {
-        --primary: #333333; /* Color de realce */
-        --secondary: #878787; /* Color contextual */
+        --primary: #333333;
+        --secondary: #878787;
         --light-bg: #fbfbfd;
-        --darker-bg: #f2f2f5; /* NUEVO: Gris ligeramente más oscuro */
+        --darker-bg: #f2f2f5;
         --white: #ffffff;
         --ease: cubic-bezier(0.23, 1, 0.32, 1);
         --gap: 80px; 
@@ -28,18 +28,16 @@
       .reveal { opacity: 0; transform: translateY(30px); transition: all 1s var(--ease); }
       .reveal.active { opacity: 1; transform: translateY(0); }
 
-      /* --- ENCABEZADO Y LOGO --- */
       header { padding: 60px 0 0 0; } 
       .header-logo { width: 100%; max-width: 380px; height: auto; margin-bottom: 40px; display: block; border-radius: 12px; }
 
-      /* PUNTO 2: TÍTULOS Y SUBTÍTULOS POR DEFECTO EN #878787 */
       h1 { 
         font-size: clamp(32px, 7vw, 54px); 
         font-weight: 700; 
         letter-spacing: -0.03em; 
-        line-height: 1.0; /* Ajuste ligero de línea por peso visual */
+        line-height: 1.0; 
         margin-bottom: var(--gap); 
-        color: var(--secondary); /* Por defecto gris claro */
+        color: var(--secondary); 
       }
       
       h2 { 
@@ -48,19 +46,16 @@
         margin-bottom: 25px; 
         letter-spacing: -0.01em; 
         margin-top: 0; 
-        color: var(--secondary); /* Por defecto gris claro */
+        color: var(--secondary); 
         line-height: 1.1; 
       }
 
-      /* Clases para realzar con #333333 */
       .h-highlight { color: var(--primary); }
-
       .mb-gap { margin-bottom: var(--gap); }
 
       p { font-size: 18px; color: var(--primary); font-weight: 400; margin-top: 0; margin-bottom: 24px; }
       .text-secondary { color: var(--secondary); }
       
-      /* --- TARJETAS DE CONTRASTE --- */
       .contrast-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: var(--gap); }
       
       .contrast-card { 
@@ -71,7 +66,6 @@
         font-size: 16px; 
       }
 
-      /* PUNTO 1: TARJETA "EN PRIVADO" MÁS OSCURA */
       .contrast-card-dark { 
         background: var(--darker-bg); 
         border-color: #e8e8ed; 
@@ -79,43 +73,55 @@
 
       .contrast-card strong { display: block; text-transform: uppercase; font-size: 12px; letter-spacing: 0.1em; color: var(--secondary); margin-bottom: 12px; }
 
-      /* --- CITA NORMALIZADA --- */
       .quote-block { font-size: 18px; font-weight: 500; color: #000; line-height: 1.6; border-left: 3px solid var(--primary); padding-left: 25px; margin-bottom: var(--gap); }
 
-      /* --- SLIDER DE DÍAS --- */
+      /* --- SLIDER DE DÍAS (OPTIMIZADO) --- */
       .slider-section { margin-bottom: var(--gap); overflow: hidden; }
-      .days-slider { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 20px 0; }
+      .days-slider { 
+        display: flex; 
+        gap: 20px; 
+        overflow-x: auto; 
+        scroll-snap-type: x mandatory; 
+        scrollbar-width: none; 
+        padding: 20px 0; 
+        cursor: grab; /* Indica que se puede arrastrar */
+        user-select: none;
+      }
+      .days-slider:active { cursor: grabbing; }
       .days-slider::-webkit-scrollbar { display: none; }
-      .day-card { flex: 0 0 320px; background: var(--light-bg); padding: 35px; border-radius: 28px; border: 1px solid #f2f2f2; scroll-snap-align: start; }
+
+      .day-card { 
+        flex: 0 0 320px; 
+        background: var(--light-bg); 
+        padding: 35px; 
+        border-radius: 28px; 
+        border: 1px solid #f2f2f2; 
+        scroll-snap-align: start; 
+      }
+      
       .day-tag { font-weight: 800; font-size: 12px; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; }
       .day-card h4 { font-size: 22px; margin: 15px 0 10px 0; }
       .day-card p { font-size: 14px; color: var(--secondary); line-height: 1.5; margin-bottom: 10px; }
       .live-label { font-size: 11px; font-weight: 800; text-transform: uppercase; background: #000; color: #fff; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
       .scroll-hint { font-size: 12px; color: var(--secondary); margin-top: 5px; display: flex; align-items: center; gap: 8px; opacity: 0.8; }
 
-      /* --- SECCIONES INDIVIDUALES --- */
       .content-block { margin-bottom: var(--gap); }
 
-      /* --- AVISO RESTRINGIDO --- */
       .aviso-section { margin-bottom: var(--gap); padding: 40px; background: #fafafa; border-radius: 24px; border: 1px solid #f0f0f0; }
       .info-item { margin-bottom: 30px; }
       .info-item:last-child { margin-bottom: 0; }
       .info-item strong { display: block; font-size: 17px; margin-bottom: 8px; color: #000; }
       .info-item p { font-size: 15px; color: var(--secondary); margin: 0; }
 
-      /* --- NO PIERDAS TU TIEMPO --- */
       .warning-section { margin-bottom: var(--gap); padding: 40px; border-radius: 24px; background: #333; color: #fff; }
-      
-      /* Ajuste especial para h2 en sección oscura */
       .warning-section h2 { color: var(--white); } 
-      .warning-section h2 .h-highlight { color: var(--white); } /* En fondo oscuro, el realce es blanco */
+      .warning-section h2 .h-highlight { color: var(--white); } 
       .warning-section h2 .h-mute { color: var(--secondary); }
 
       .warning-item { padding: 10px 0; margin-bottom: 10px; }
       .warning-item strong { display: block; color: #fff; margin-bottom: 5px; }
       .warning-item span { color: #878787; font-size: 15px; }
 
-      /* --- FORMULARIO --- */
       .form-section { margin-bottom: var(--gap); padding: 50px 30px; background: var(--white); border-radius: 32px; border: 1px solid #eee; text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.06); }
       input { width: 100%; padding: 18px; margin: 10px 0; border: 1px solid #d2d2d7; border-radius: 14px; background: #f5f5f7; font-size: 16px; box-sizing: border-box; text-align: left; }
       .iti { width: 100%; text-align: left; }
@@ -278,6 +284,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <script>
+      // Animación al hacer scroll
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) entry.target.classList.add('active');
@@ -285,13 +292,59 @@
       }, { threshold: 0.1 });
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+      // --- LÓGICA DEL SLIDER (MOUSE & TOUCH) ---
       const slider = document.getElementById('daysSlider');
-      let autoScroll = setInterval(() => {
-        slider.scrollBy({ left: 1, behavior: 'auto' });
-        if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth) slider.scrollTo({left: 0});
-      }, 35);
-      slider.addEventListener('touchstart', () => clearInterval(autoScroll));
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+      let autoScroll;
 
+      // Iniciar Auto-scroll
+      const startAutoScroll = () => {
+        autoScroll = setInterval(() => {
+          slider.scrollLeft += 1;
+          if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth) {
+            slider.scrollLeft = 0;
+          }
+        }, 35);
+      };
+      
+      startAutoScroll();
+
+      // Mouse Events para computadora (Arrastrar)
+      slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        clearInterval(autoScroll);
+        slider.style.scrollSnapType = 'none'; // Desactivar snap al arrastrar para fluidez
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+      });
+
+      slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.style.scrollSnapType = 'x mandatory';
+        startAutoScroll();
+      });
+
+      slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.style.scrollSnapType = 'x mandatory';
+        startAutoScroll();
+      });
+
+      slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2; // Velocidad del arrastre
+        slider.scrollLeft = scrollLeft - walk;
+      });
+
+      // Touch Events para móvil
+      slider.addEventListener('touchstart', () => clearInterval(autoScroll));
+      slider.addEventListener('touchend', () => startAutoScroll());
+
+      // --- FORMULARIO ---
       const iti = window.intlTelInput(document.querySelector("#telefono"), {
         initialCountry: "mx",
         utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
