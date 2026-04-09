@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepfall | Solicitud de Descenso</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+    <style>
+        :root { --primary: #333333; --secondary: #878787; }
+        body { margin: 0; background: #fff; font-family: -apple-system, sans-serif; color: var(--primary); }
+        .wrapper { max-width: 600px; margin: 0 auto; padding: 60px 20px; text-align: center; }
+        h1 { font-size: 42px; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 40px; }
+        .card-slider { display: flex; overflow-x: auto; gap: 15px; padding: 20px 0; scrollbar-width: none; }
+        .card-slider::-webkit-scrollbar { display: none; }
+        .card { flex: 0 0 280px; background: #fbfbfd; padding: 30px; border-radius: 24px; border: 1px solid #eee; text-align: left; }
+        .form-box { margin-top: 80px; padding: 40px; border-radius: 30px; border: 1px solid #f0f0f0; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        input { width: 100%; padding: 18px; margin: 10px 0; border: 1px solid #ddd; border-radius: 16px; font-size: 16px; box-sizing: border-box; }
+        button { width: 100%; padding: 18px; background: var(--primary); color: #fff; border: none; border-radius: 16px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 20px; }
+        #msg { display: none; padding: 40px 0; }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Tú quieres escoger,<br>no ser escogido.</h1>
+        
+        <div class="card-slider">
+            <div class="card"><h3>Día 01</h3><p>La renuncia a la validación externa.</p></div>
+            <div class="card"><h3>Día 02</h3><p>La fuente y errores invisibles.</p></div>
+            <div class="card"><h3>Día 03</h3><p>El veredicto final y la densidad.</p></div>
+        </div>
+
+        <div class="form-box">
+            <div id="form-ui">
+                <h2>Solicitar acceso</h2>
+                <form id="deepForm">
+                    <input type="text" id="nombre" placeholder="Nombre completo" required>
+                    <input type="email" id="email" placeholder="Correo electrónico" required>
+                    <input type="tel" id="telefono" required>
+                    <button type="submit" id="btn">Quiero escoger</button>
+                </form>
+            </div>
+            <div id="msg">
+                <h2>Solicitud recibida</h2>
+                <p>Serás redirigido...</p>
+                <button onclick="window.location.href='https://deepnessmen.com/prueba'">CONTINUAR</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script>
+        const iti = window.intlTelInput(document.querySelector("#telefono"), {
+            initialCountry: "mx",
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+        });
+
+        document.getElementById('deepForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            document.getElementById('btn').innerText = "Procesando...";
+            
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxXHiXvM-urUNO4uFsrWK3_4x_iJDF6P_A65XcXBGcWtiMLzrtS-5CNGygyH1wyJy1uyQ/exec'; // <--- PEGA AQUÍ LA URL DE GOOGLE APPS SCRIPT
+            
+            const datos = {
+                nombre: document.getElementById('nombre').value,
+                email: document.getElementById('email').value,
+                telefono: iti.getNumber()
+            };
+
+            // Enviamos los datos a Google Sheets
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors', // Importante para Google Scripts
+                body: JSON.stringify(datos)
+            });
+
+            // Mostramos éxito y redirigimos
+            document.getElementById('form-ui').style.display = 'none';
+            document.getElementById('msg').style.display = 'block';
+            setTimeout(() => { window.location.href = "https://deepnessmen.com/prueba"; }, 2000);
+        });
+    </script>
+</body>
+</html>
