@@ -18,25 +18,24 @@
         margin: 0; padding: 0; background: var(--white); 
         font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; 
         color: var(--primary); line-height: 1.7; -webkit-font-smoothing: antialiased;
-        text-align: left; /* Justificado a la izquierda */
+        text-align: left;
       }
 
       .container { width: 100%; max-width: 700px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; }
 
-      /* Animación Reveal */
       .reveal { opacity: 0; transform: translateY(30px); transition: all 1s var(--ease); }
       .reveal.active { opacity: 1; transform: translateY(0); }
 
-      /* --- SECCIONES DE TEXTO (ESTILO PREMIUM) --- */
-      /* Ajuste de padding para acomodar la imagen */
-      header { padding: 60px 0 60px; } 
+      /* --- ENCABEZADO Y IMAGEN CONTEXTUAL --- */
+      header { padding: 40px 0 60px; } 
       
-      /* --- ESTILO DE LA IMAGEN DEL ENCABEZADO --- */
       .header-logo {
-        max-width: 150px; /* Ancho máximo del logo */
-        height: auto; /* Mantiene la proporción */
-        margin-bottom: 20px; /* Espacio debajo de la imagen */
-        display: block; /* Asegura la alineación correcta */
+        width: 100%;
+        max-width: 450px; /* TRIPLICADO: De 150px a 450px */
+        height: auto;
+        margin-bottom: 40px; /* Más espacio abajo por ser una imagen grande */
+        display: block;
+        border-radius: 12px; /* Esquinas suaves estilo Apple para fotos */
       }
 
       h1 { font-size: clamp(32px, 7vw, 54px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 30px; color: #000; }
@@ -49,7 +48,7 @@
       .intro-section { padding: 40px 0; border-bottom: 1px solid #eee; margin-bottom: 60px; }
       .quote-block { font-size: 22px; font-weight: 500; color: #000; line-height: 1.4; margin: 40px 0; border-left: 3px solid var(--primary); padding-left: 25px; }
 
-      /* --- 1) SLIDER DE DÍAS (MANTENIDO + ETIQUETA) --- */
+      /* --- 1) SLIDER DE DÍAS --- */
       .slider-section { margin: 80px 0; overflow: hidden; }
       .days-slider { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 10px 0; }
       .days-slider::-webkit-scrollbar { display: none; }
@@ -59,25 +58,24 @@
       .day-card p { font-size: 14px; color: var(--secondary); line-height: 1.5; margin: 0; }
       .scroll-hint { font-size: 12px; color: var(--secondary); margin-top: 15px; display: flex; align-items: center; gap: 8px; opacity: 0.8; }
 
-      /* --- 2) AVISO RESTRINGIDO (MANTENIDO) --- */
+      /* --- 2) AVISO RESTRINGIDO --- */
       .aviso-section { margin: 80px 0; padding: 40px; background: #fafafa; border-radius: 24px; border: 1px solid #f0f0f0; }
       .info-item { margin-bottom: 30px; }
       .info-item strong { display: block; font-size: 17px; margin-bottom: 5px; color: #000; }
       .info-item p { font-size: 15px; color: var(--secondary); margin: 0; }
 
-      /* --- SECCIONES "NO PIERDAS TU TIEMPO" (DESTACADA) --- */
+      /* --- SECCIONES "NO PIERDAS TU TIEMPO" --- */
       .warning-section { margin: 80px 0; padding: 40px; border-radius: 24px; background: #333; color: #fff; }
       .warning-section h2 { color: #fff; margin-top: 0; }
       .warning-section p { color: #878787; font-size: 16px; border-bottom: 1px solid #444; padding-bottom: 15px; }
       .warning-section p:last-child { border: none; }
 
-      /* --- 3) FORMULARIO (MANTENIDO) --- */
+      /* --- 3) FORMULARIO --- */
       .form-section { margin: 100px 0; padding: 50px 30px; background: var(--white); border-radius: 32px; border: 1px solid #eee; text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.06); }
       input { width: 100%; padding: 18px; margin: 10px 0; border: 1px solid #d2d2d7; border-radius: 14px; background: #f5f5f7; font-size: 16px; box-sizing: border-box; text-align: left; }
       .iti { width: 100%; text-align: left; }
       button { width: 100%; padding: 20px; background: var(--primary); color: white; border: none; border-radius: 16px; font-size: 18px; font-weight: 600; cursor: pointer; margin-top: 15px; }
 
-      /* SOBRE MÍ (DESTACADA) */
       .about-section { padding: 80px 0; border-top: 1px solid #eee; }
       .about-card { display: flex; flex-direction: column; gap: 20px; }
       .signature { font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--secondary); margin-top: 20px; }
@@ -85,7 +83,7 @@
       @media (max-width: 480px) {
         .day-card { flex: 0 0 85%; }
         .aviso-section, .warning-section { padding: 30px 20px; }
-        .header-logo { max-width: 120px; } /* Logo ligeramente más pequeño en móvil */
+        .header-logo { max-width: 100%; } /* En móvil ocupa todo el ancho */
       }
     </style>
   </head>
@@ -93,8 +91,7 @@
 
     <div class="container">
       <header class="reveal">
-        <img src="rey.001.jpeg" alt="Deepfall Logo" class="header-logo">
-        
+        <img src="rey.001.jpeg" alt="Deepfall Context" class="header-logo">
         <h3>Deepfall: El Descenso</h3>
         <h1>Esta es la realidad: Tú quieres escoger, no ser escogido.</h1>
       </header>
@@ -182,7 +179,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <script>
-      // Reveal Animation
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) entry.target.classList.add('active');
@@ -190,7 +186,6 @@
       }, { threshold: 0.15 });
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-      // Auto-scroll Slider
       const slider = document.getElementById('daysSlider');
       let autoScroll = setInterval(() => {
         slider.scrollBy({ left: 1, behavior: 'auto' });
@@ -198,19 +193,17 @@
       }, 30);
       slider.addEventListener('touchstart', () => clearInterval(autoScroll));
 
-      // Intl-tel
       const iti = window.intlTelInput(document.querySelector("#telefono"), {
         initialCountry: "mx",
         utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
       });
 
-      // Submit
       document.getElementById('deepForm').addEventListener('submit', async (e) => {
         e.preventDefault();
         const btn = document.getElementById('btn');
         btn.innerText = "ENVIANDO...";
         
-        // --- RECUERDA CONFIGURAR ESTO ---
+        // --- PEGA TU URL DE GOOGLE APPS SCRIPT AQUÍ ---
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxXHiXvM-urUNO4uFsrWK3_4x_iJDF6P_A65XcXBGcWtiMLzrtS-5CNGygyH1wyJy1uyQ/exec'; 
 
         fetch(scriptURL, { 
