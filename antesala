@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Clase Especial / Deepfall</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="bunker-content" style="display: flex;">
+        <div class="logo"><img src="DF.png" alt="Deepfall"></div>
+        
+        <p class="indicator">Tramo 01/ Antesala</p>
+        
+        <h1 class="title">Deepclass.</h1>
+        <p class="description">Esta clase te pondrá en la frecuencia necesaria para descender.</p>
+        
+        <div class="work-area">
+            <div class="video-container">
+                <iframe src="https://player.mediadelivery.net/embed/649829/4f201d75-419c-4a29-bb64-d8794895f942?autoplay=false&loop=false&muted=false&preload=false&responsive=true" 
+            loading="lazy" 
+            style="border:0; position:absolute; top:0; left:0; height:100%; width:100%; border-radius: 16px;" 
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        </div>
+</body>
+</html>
